@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Drones for Firefighting</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000; /* Black */
+            color: #F3F4F6; /* Light gray */
+        }
+        .hero-section {
+            background: linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.8)), url('https://images.unsplash.com/photo-1593352222389-9851a7a03227?q=80&w=2070&auto=format&fit=crop') no-repeat center center;
+            background-size: cover;
+        }
+        .section-title {
+            @apply text-4xl font-bold text-center mb-12 text-white relative;
+        }
+        .section-title::after {
+            content: '';
+            @apply block w-24 h-1 bg-orange-500 mx-auto mt-4 rounded;
+        }
+        .card {
+            @apply bg-gray-800 p-8 rounded-2xl shadow-lg transition-transform transform hover:-translate-y-2;
+        }
+        .btn {
+            @apply px-8 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition-colors shadow-md;
+        }
+        .stat-card {
+            @apply bg-gray-800 p-6 rounded-lg text-center;
+        }
+        nav a {
+             @apply relative text-white;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #F97316; /* Orange-500 */
+            transition: width 0.3s ease-in-out;
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50 shadow-lg">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-white flex items-center">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNGOTczMTYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIyIj48L2NpcmNsZT48cGF0aCBkPSJNMTIgMnY0TTEyIDE4djRNMjIgMTJoLTRNNiAxMkgibTExLjA3IDExLjA3bC0yLjgzLTIuODNNNy43NiAxNi4yNGwtMi44MyAyLjgzTTE5LjA3IDE5LjA3bC0yLjgzLTIuODNNNy43NiA3Ljc2TDQuOTMgNC45MyI+PC9wYXRoPjwvc3ZnPg==" alt="Drone Icon" class="inline-block w-8 h-8 mr-3">
+                <span>Combating Wildfires with UAVs</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#" class="hover:text-orange-500 transition-colors">Home</a>
+                <a href="#problem" class="hover:text-orange-500 transition-colors">The Problem</a>
+                <a href="#solution" class="hover:text-orange-500 transition-colors">The Solution</a>
+                <a href="#how-it-works" class="hover:text-orange-500 transition-colors">How It Works</a>
+                <a href="#tech" class="hover:text-orange-500 transition-colors">Technology</a>
+                <a href="#team" class="hover:text-orange-500 transition-colors">The Team</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-800">Home</a>
+            <a href="#problem" class="block py-2 px-4 text-sm hover:bg-gray-800">The Problem</a>
+            <a href="#solution" class="block py-2 px-4 text-sm hover:bg-gray-800">The Solution</a>
+            <a href="#how-it-works" class="block py-2 px-4 text-sm hover:bg-gray-800">How It Works</a>
+            <a href="#tech" class="block py-2 px-4 text-sm hover:bg-gray-800">Technology</a>
+            <a href="#team" class="block py-2 px-4 text-sm hover:bg-gray-800">The Team</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section py-32">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-4 leading-tight">Using Self-sacrificing
+Drones to Combat Wildfires</h1>
+                <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">An innovative approach using Autonomous, Biodegradable, Self-sacrificing (ABS) drones to combat large-scale wildfires with satellite assistance.</p>
+                <a href="https://ntrs.nasa.gov/citations/20230011861" target="_blank" class="btn text-lg">Read the Paper &rarr;</a>
+            </div>
+        </section>
+
+        <!-- The Problem Section -->
+        <section id="problem" class="py-24 bg-black">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">The Escalating Threat of Wildfires</h2>
+                <p class="text-center text-gray-400 max-w-3xl mx-auto mb-16">Wildfires are a growing global crisis, devastating ecosystems, communities, and economies. Their unpredictable nature and increasing frequency demand a smarter, safer, and more effective response.</p>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="stat-card">
+                        <div class="text-orange-500 text-5xl mb-4"><i class="fas fa-chart-line"></i></div>
+                        <h3 class="text-2xl font-bold text-white mb-2">7,997 More Fires</h3>
+                        <p class="text-gray-400">Increase in annual US wildfires in 2022 compared to 2020.</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="text-orange-500 text-5xl mb-4"><i class="fas fa-tree"></i></div>
+                        <h3 class="text-2xl font-bold text-white mb-2">7.6 Million Acres</h3>
+                        <p class="text-gray-400">of US land were burned by wildfires in 2022 alone.</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="text-orange-500 text-5xl mb-4"><i class="fas fa-smog"></i></div>
+                        <h3 class="text-2xl font-bold text-white mb-2">1.76 Billion Tons</h3>
+                        <p class="text-gray-400">of CO2 emissions were created by wildfires globally in 2021.</p>
+                    </div>
+                </div>
+
+                <div class="mt-16 p-8 bg-gray-800 rounded-lg shadow-lg flex flex-col md:flex-row items-center gap-8">
+                    <div class="md:w-1/3 text-center">
+                         <img src="https://34c031f8-c9fd-4018-8c5a-4159cdff6b0d-cdn-endpoint.azureedge.net/-/media/calfire-website/images---misc/fixed-wing-flight-hours.jpg?rev=da23c7ae603a4cc795966eb6d81f90ab&hash=EA6D9EF3D8C03206F8EC58450458B578" alt="CAL FIRE Flight Hours Chart" class="rounded-lg shadow-md mx-auto" onerror="this.onerror=null;this.src='https://placehold.co/400x300/1F2937/F97316?text=Chart+Not+Available';">
+                    </div>
+                    <div class="md:w-2/3">
+                        <h3 class="text-3xl font-bold text-white mb-4">The Challenge with Current Methods</h3>
+                        <p class="text-gray-400 mb-4">Traditional aerial firefighting, while vital, faces significant challenges. Manned aircraft are expensive, with a tanker costing over <span class="font-bold text-orange-500">$6,000 per hour</span>. They often have delayed response times and their drop accuracy is reduced by smoke, terrain, and weather conditions, putting pilots' lives at risk.</p>
+                        <p class="text-gray-400">Our project aims to augment these efforts, providing a rapid, precise, and cost-effective first line of defense.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Solution Section -->
+        <section id="solution" class="py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">A New Frontier in Firefighting</h2>
+                <p class="text-center text-gray-400 max-w-3xl mx-auto mb-16">We propose a fleet of Autonomous, Biodegradable, Self-sacrificing (ABS) drones. This system is designed to provide rapid deployment of fire retardant, creating crucial firebreaks and slowing a wildfire's spread before traditional aerial support arrives.</p>
+
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-3xl font-bold text-white mb-6">Autonomous Biodegradable Self-sacrificing (ABS) Drones</h3>
+                        <ul class="space-y-4 text-gray-300">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-orange-500 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-semibold text-lg text-white">Rapid Response</h4>
+                                    <p>Deployed from fire engines or watchtowers, our drones can be on-scene in minutes, a critical time-saver when wildfires can travel up to 14 mph.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-crosshairs text-orange-500 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-semibold text-lg text-white">Surgical Precision</h4>
+                                    <p>Small and maneuverable, drones can navigate obstacles like trees and power lines to deliver retardant at precise, low-altitude locations, increasing effectiveness.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-shield-alt text-orange-500 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-semibold text-lg text-white">Enhanced Safety</h4>
+                                    <p>The self-sacrificing design eliminates the need for complex release mechanisms and removes pilots and crew from the most dangerous, low-visibility zones.</p>
+                                </div>
+                            </li>
+                             <li class="flex items-start">
+                                <i class="fas fa-dollar-sign text-orange-500 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-semibold text-lg text-white">Cost-Effective</h4>
+                                    <p>Designed for single-use and mass production, these drones reduce operational costs and the financial burden associated with expensive manned aircraft.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="p-4 bg-gray-800 rounded-lg">
+                        <img src="https://images.unsplash.com/photo-1621259021029-b6842a6d0c4b?q=80&w=1932&auto=format&fit=crop" alt="Firefighting Drone" class="rounded-lg shadow-2xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1F2937/F97316?text=Drone+Image';">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="py-24 bg-black">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Deployment Strategy</h2>
+                 <img src="https_//ntrs.nasa.gov/api/citations/20230011861/downloads/TM-20230011861%20(1).pdf_page_12_74_dpi.png" alt="Storyboard of drone deployment" class="rounded-lg shadow-xl mx-auto" onerror="this.onerror=null;this.src='https://placehold.co/1200x800/111827/F3F4F6?text=Deployment+Storyboard';">
+                <div class="mt-12 grid md:grid-cols-5 gap-8 text-center text-gray-300">
+                    <div class="step">
+                        <div class="text-3xl font-bold text-orange-500 mb-2">1</div>
+                        <h4 class="font-semibold text-white mb-1">Arrival & Detection</h4>
+                        <p class="text-sm">A fire engine carrying a fleet of ABS drones arrives at the wildfire scene.</p>
+                    </div>
+                    <div class="step">
+                        <div class="text-3xl font-bold text-orange-500 mb-2">2</div>
+                        <h4 class="font-semibold text-white mb-1">Launch Fleet</h4>
+                        <p class="text-sm">Pre-programmed drones are released, each carrying a payload of fire retardant.</p>
+                    </div>
+                    <div class="step">
+                        <div class="text-3xl font-bold text-orange-500 mb-2">3</div>
+                        <h4 class="font-semibold text-white mb-1">Strategic Positioning</h4>
+                        <p class="text-sm">The drone swarm encircles the fire or covers a strategic section based on satellite data.</p>
+                    </div>
+                    <div class="step">
+                        <div class="text-3xl font-bold text-orange-500 mb-2">4</div>
+                        <h4 class="font-semibold text-white mb-1">Self-Sacrifice</h4>
+                        <p class="text-sm">Drones crash at designated points, deploying their retardant to create a firebreak.</p>
+                    </div>
+                    <div class="step">
+                        <div class="text-3xl font-bold text-orange-500 mb-2">5</div>
+                        <h4 class="font-semibold text-white mb-1">Repeat & Support</h4>
+                        <p class="text-sm">The process is repeated as needed to contain the fire until larger air tankers arrive.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Technology Section -->
+        <section id="tech" class="py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Core Technologies</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="card">
+                        <div class="text-4xl text-orange-500 mb-4"><i class="fas fa-leaf"></i></div>
+                        <h3 class="text-2xl font-bold mb-3 text-white">Biodegradable Materials</h3>
+                        <p class="text-gray-400">The drone's chassis is designed with materials like mycelium (fungal threads), which are 100% biodegradable and fire-resistant. This minimizes environmental impact after the drone's single-use mission.</p>
+                    </div>
+                    <div class="card">
+                        <div class="text-4xl text-orange-500 mb-4"><i class="fas fa-battery-full"></i></div>
+                        <h3 class="text-2xl font-bold mb-3 text-white">Aqueous Ion Batteries</h3>
+                        <p class="text-gray-400">Instead of flammable traditional lithium-ion batteries, we use safer, water-based aqueous lithium-ion batteries. They are non-flammable upon impact, environmentally friendly, and provide sufficient power for short-duration missions.</p>
+                    </div>
+                    <div class="card">
+                        <div class="text-4xl text-orange-500 mb-4"><i class="fas fa-satellite-dish"></i></div>
+                        <h3 class="text-2xl font-bold mb-3 text-white">Satellite Integration</h3>
+                        <p class="text-gray-400">Using satellite data (like NASA's SMAP), drones can be guided autonomously with real-time adjustments based on fire spread, wind conditions, and terrain. This also allows for preemptive analysis of high-risk areas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Team Section -->
+        <section id="team" class="py-24 bg-black">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Meet the Team</h2>
+                <p class="text-center text-gray-400 max-w-3xl mx-auto mb-16">This project is the result of a collaborative effort by a dedicated team of high school students as part of a NASA volunteer internship program.</p>
+                <div class="flex flex-wrap justify-center gap-8">
+                    <div class="text-center p-4 bg-gray-800 rounded-lg w-52">
+                        <p class="font-bold text-white">Angad Chhibber</p>
+                        <p class="text-sm text-gray-400">Dublin High School</p>
+                    </div>
+                    <div class="text-center p-4 bg-gray-800 rounded-lg w-52">
+                        <p class="font-bold text-white">Aishwarya Gogi</p>
+                        <p class="text-sm text-gray-400">American High School</p>
+                    </div>
+                    <div class="text-center p-4 bg-gray-800 rounded-lg w-52">
+                        <p class="font-bold text-white">Shivani Kulkarni</p>
+                        <p class="text-sm text-gray-400">American High School</p>
+                    </div>
+                    <div class="text-center p-4 bg-gray-800 rounded-lg w-52">
+                        <p class="font-bold text-white">Brianna Nguyen</p>
+                        <p class="text-sm text-gray-400">American High School</p>
+                    </div>
+                    <div class="text-center p-4 bg-gray-800 rounded-lg w-52">
+                        <p class="font-bold text-white">Raghvi Sharma</p>
+                        <p class="text-sm text-gray-400">American High School</p>
+                    </div>
+                    <div class="text-center p-4 bg-gray-800 rounded-lg w-52">
+                        <p class="font-bold text-white">Alexander Suen</p>
+                        <p class="text-sm text-gray-400">Dublin High School</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-8">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+             <p class="mb-2">NASA Technical Memorandum NASA/TM-20230011861</p>
+            <p>This project was made possible by the NASA volunteer internship program. Special thanks to our mentors Haroon Khan and Alexey Munishkin, and Capt. Brian Centoni of the Alameda County Fire Department for their invaluable insights.</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when a link is clicked
+        const mobileLinks = mobileMenu.getElementsByTagName('a');
+        for(let link of mobileLinks) {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        }
+    </script>
+</body>
+</html>
+
+
+
