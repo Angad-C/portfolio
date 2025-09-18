@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angad Chhibber - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #e2e8f0;
+        }
+        .glass-effect {
+            background: rgba(17, 24, 39, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .brand-gradient {
+            background: linear-gradient(90deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(56, 189, 248, 0.3);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-effect">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-2xl font-extrabold tracking-tight text-white">
+                    Angad Chhibber
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-sm font-medium text-slate-300 hover:text-sky-400 transition-colors">About</a>
+                    <a href="#experience" class="text-sm font-medium text-slate-300 hover:text-sky-400 transition-colors">Experience</a>
+                    <a href="#portfolio" class="text-sm font-medium text-slate-300 hover:text-sky-400 transition-colors">Portfolio</a>
+                    <a href="#piloting" class="text-sm font-medium text-slate-300 hover:text-sky-400 transition-colors">Piloting</a>
+                    <a href="#creative" class="text-sm font-medium text-slate-300 hover:text-sky-400 transition-colors">Creative</a>
+                    <a href="#contact" class="text-sm font-medium text-slate-300 hover:text-sky-400 transition-colors">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Hero Section -->
+            <section class="text-center py-20">
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tighter">
+                    Innovating at the intersection of <br/> <span class="brand-gradient">Engineering & Exploration</span>.
+                </h1>
+                <p class="mt-6 max-w-3xl mx-auto text-lg text-slate-400">
+                    A student at Olin College of Engineering with a passion for aerospace, robotics, and developing technology to solve real-world problems.
+                </p>
+                <div class="mt-8 flex justify-center gap-4">
+                    <a href="#projects" class="bg-sky-500 text-white font-semibold py-3 px-6 rounded-lg hover:bg-sky-600 transition-all">View My Work</a>
+                </div>
+            </section>
+
+            <!-- About Me -->
+            <section id="about" class="py-20">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+                    <div class="md:col-span-1">
+                        <img src="https://placehold.co/400x400/0a0a0a/e2e8f0?text=AC" alt="Angad Chhibber" class="rounded-full mx-auto shadow-2xl border-4 border-slate-700">
+                    </div>
+                    <div class="md:col-span-2">
+                        <h2 class="text-4xl font-bold text-white mb-4">About Me</h2>
+                        <p class="text-slate-400 space-y-4">
+                            I am a student at Olin College of Engineering in Needham, Massachusetts, deeply fascinated by Physics, Astronomy, and the intricate workings of machines. My journey has led me to explore computer programming, 3D modeling, and even aerial photography.
+                            <br><br>
+                            From volunteering at the Chabot Space and Science Center to interning with the Mars Institute and NASA Ames, I'm driven by a desire to contribute to pioneering projects that push the boundaries of exploration and technology. I thrive in collaborative environments where I can apply my skills to create impactful solutions.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience -->
+            <section id="experience" class="py-20">
+                <h2 class="text-4xl font-bold text-white text-center mb-12">Experience</h2>
+                <div class="max-w-3xl mx-auto">
+                    <div class="space-y-8 relative border-l-2 border-slate-700 ml-4">
+                        <div class="pl-8">
+                            <div class="absolute -left-[11px] top-1 h-5 w-5 rounded-full bg-sky-500 border-4 border-slate-800"></div>
+                            <h3 class="text-2xl font-semibold text-white">NASA Ames Research Center</h3>
+                            <p class="text-sky-400 font-medium">Aviation Systems Division Intern</p>
+                            <p class="text-slate-400 mt-2">Worked in a team to identify and propose a solution for a societal problem using aviation. Proposed using self-sacrificing UAVs to spread fire retardants. Co-authored a research paper published on the NASA Technical Reports Server.</p>
+                        </div>
+                        <div class="pl-8">
+                            <div class="absolute -left-[11px] top-1 h-5 w-5 rounded-full bg-sky-500 border-4 border-slate-800"></div>
+                            <h3 class="text-2xl font-semibold text-white">Mars Institute</h3>
+                            <p class="text-sky-400 font-medium">Global Research Internship Program (MI-GRIP)</p>
+                            <p class="text-slate-400 mt-2">Interned 1-on-1 with Dr. Pascal Lee, working on a "GlobeTrotter-Lunar" (GTL) concept for lunar surface and subsurface exploration. Created use-case simulations and first-authored a paper for the Lunar Exploration Analysis Group.</p>
+                        </div>
+                        <div class="pl-8">
+                           <div class="absolute -left-[11px] top-1 h-5 w-5 rounded-full bg-sky-500 border-4 border-slate-800"></div>
+                            <h3 class="text-2xl font-semibold text-white">Chabot Space and Science Center</h3>
+                            <p class="text-sky-400 font-medium">Zenith Galaxy Explorer (Volunteer)</p>
+                            <p class="text-slate-400 mt-2">Engaged with visitors to share the wonders of science. Participated in Rocketry and Engineering clubs, fostering a passion for STEM in the community.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Portfolio -->
+            <section id="portfolio" class="py-20">
+                <h2 class="text-4xl font-bold text-white text-center mb-12">Portfolio</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="glass-effect rounded-xl hover-lift overflow-hidden">
+                        <img src="https://placehold.co/600x400/1e293b/94a3b8?text=Project+Graphic" alt="Fighting Wildfires Using UAVs" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white">Fighting Wildfires Using UAVs</h3>
+                            <p class="text-slate-400 mt-2">A concept for Autonomous Biodegradable Self-sacrificing (ABS) Drones to assist in combating large wildfires, reducing risk to firefighters.</p>
+                            <a href="https://ntrs.nasa.gov/citations/20230011861" target="_blank" class="text-sky-400 mt-4 inline-block font-semibold">Read the Paper &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="glass-effect rounded-xl hover-lift overflow-hidden">
+                        <img src="https://placehold.co/600x400/1e293b/94a3b8?text=Project+Graphic" alt="GlobeTrotter-Lunar (GTL)" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white">GlobeTrotter-Lunar (GTL)</h3>
+                            <p class="text-slate-400 mt-2">A conceptual device for exploring the lunar surface and sub-surface lava caves, developed under the mentorship of Dr. Pascal Lee.</p>
+                             <a href="#" class="text-slate-500 mt-4 inline-block font-semibold cursor-not-allowed">Details Coming Soon</a>
+                        </div>
+                    </div>
+                    <div class="glass-effect rounded-xl hover-lift overflow-hidden">
+                        <img src="https://placehold.co/600x400/1e293b/94a3b8?text=Project+Graphic" alt="Auto Itinerary" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white">Auto Itinerary</h3>
+                            <p class="text-slate-400 mt-2">A web tool created to experiment with ChatGPT's API, demonstrating its use in quickly generating travel itineraries.</p>
+                            <a href="https://medium.com/@angadchhibber/using-chatgpt-to-create-a-travel-itinerary-website-316407dd31bf" target="_blank" class="text-sky-400 mt-4 inline-block font-semibold">View on Medium &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="glass-effect rounded-xl hover-lift overflow-hidden">
+                        <img src="https://placehold.co/600x400/1e293b/94a3b8?text=Project+Graphic" alt="Automated Rover Navigation" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white">Automated Rover Navigation</h3>
+                            <p class="text-slate-400 mt-2">Developed a pathfinding algorithm for an autonomous rover using computer vision and sensor fusion.</p>
+                            <a href="#" class="text-slate-500 mt-4 inline-block font-semibold cursor-not-allowed">Details Coming Soon</a>
+                        </div>
+                    </div>
+                    <div class="glass-effect rounded-xl hover-lift overflow-hidden">
+                        <img src="https://placehold.co/600x400/1e293b/94a3b8?text=Project+Graphic" alt="CubeSat Deployment System" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white">CubeSat Deployment System</h3>
+                            <p class="text-slate-400 mt-2">Designed and prototyped a novel, spring-loaded deployment mechanism for a 3U CubeSat.</p>
+                            <a href="#" class="text-slate-500 mt-4 inline-block font-semibold cursor-not-allowed">Details Coming Soon</a>
+                        </div>
+                    </div>
+                     <div class="glass-effect rounded-xl hover-lift overflow-hidden">
+                        <img src="https://placehold.co/600x400/1e293b/94a3b8?text=Portfolio+Graphic" alt="Mechanical Designs" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white">Mechanical Designs</h3>
+                            <p class="text-slate-400 mt-2">A collection of mechanical engineering designs, concepts, and analyses.</p>
+                            <a href="https://drive.google.com/file/d/1YIkqeavZ328Px73ACAQqyyq_5AWxbfZx/view?usp=sharing" target="_blank" class="text-sky-400 mt-4 inline-block font-semibold">View Document &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="glass-effect rounded-xl hover-lift overflow-hidden">
+                        <img src="https://placehold.co/600x400/1e293b/94a3b8?text=Portfolio+Graphic" alt="System Schematics" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white">System Schematics</h3>
+                            <p class="text-slate-400 mt-2">In-depth schematics and technical plans for various complex systems.</p>
+                            <a href="https://drive.google.com/file/d/1qYbT7RrFYMJUcbcCC54x2SDhoRbe1PNx/view" target="_blank" class="text-sky-400 mt-4 inline-block font-semibold">View Document &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="glass-effect rounded-xl hover-lift overflow-hidden">
+                        <img src="https://placehold.co/600x400/1e293b/94a3b8?text=Portfolio+Graphic" alt="Project Concepts" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white">Project Concepts</h3>
+                            <p class="text-slate-400 mt-2">A showcase of innovative ideas, proposals, and forward-thinking project concepts.</p>
+                            <a href="https://drive.google.com/file/d/1yEwHVX84dIw_rMmGrEZrfrTj5DCweRon/view" target="_blank" class="text-sky-400 mt-4 inline-block font-semibold">View Document &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="glass-effect rounded-xl hover-lift overflow-hidden">
+                        <img src="https://placehold.co/600x400/1e293b/94a3b8?text=Portfolio+Graphic" alt="Aerodynamic Winglet Analysis" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white">Aerodynamic Winglet Analysis</h3>
+                            <p class="text-slate-400 mt-2">CFD simulation and analysis of various winglet designs to optimize fuel efficiency.</p>
+                            <a href="#" target="_blank" class="text-sky-400 mt-4 inline-block font-semibold">View Document &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="glass-effect rounded-xl hover-lift overflow-hidden">
+                        <img src="https://placehold.co/600x400/1e293b/94a3b8?text=Portfolio+Graphic" alt="Robotic Arm Kinematics" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white">Robotic Arm Kinematics</h3>
+                            <p class="text-slate-400 mt-2">Forward and inverse kinematics modeling for a 6-degree-of-freedom robotic arm.</p>
+                            <a href="#" target="_blank" class="text-sky-400 mt-4 inline-block font-semibold">View Document &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Piloting Section -->
+            <section id="piloting" class="py-20">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+                    <div class="md:col-span-1 flex justify-center">
+                         <svg class="w-40 h-40 text-sky-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                        </svg>
+                    </div>
+                    <div class="md:col-span-2">
+                        <h2 class="text-4xl font-bold text-white mb-4">Aviation & Piloting</h2>
+                        <p class="text-slate-400 space-y-4">
+                            Over the summer of 2025, I took lessons in flying at Livermore Airport in California to earn a Private Pilot License. Learning to fly has been my childhood dream but I did not appreciate how demanding it can be! The flying lessons, and studying for the PPL written exams gave me a much deeper appreciation for airplane design, ground communication, ATC, and airplane pilots. I also hold a professional Drone Pilot license.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Creative Pursuits Section -->
+            <section id="creative" class="py-20">
+                <h2 class="text-4xl font-bold text-white text-center mb-12">Creative Pursuits</h2>
+                <p class="text-center text-slate-400 max-w-2xl mx-auto mb-12">Beyond engineering, I have a passion for capturing the world from different perspectives through photography and drone videography.</p>
+                <div class="text-center mb-12">
+                    <a href="https://photos.app.goo.gl/xKcj4C7yZu3VYyVa9" target="_blank" class="bg-sky-500 text-white font-semibold py-3 px-6 rounded-lg hover:bg-sky-600 transition-all inline-block">View Full Gallery</a>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="grid gap-4">
+                        <div>
+                            <img class="h-auto max-w-full rounded-lg hover-lift" src="https://placehold.co/800x600/1e293b/94a3b8?text=Photo+1" alt="">
+                        </div>
+                        <div>
+                            <img class="h-auto max-w-full rounded-lg hover-lift" src="https://placehold.co/800x1200/1e293b/94a3b8?text=Photo+2" alt="">
+                        </div>
+                    </div>
+                    <div class="grid gap-4">
+                        <div>
+                            <img class="h-auto max-w-full rounded-lg hover-lift" src="https://placehold.co/800x1200/1e293b/94a3b8?text=Photo+3" alt="">
+                        </div>
+                        <div>
+                            <img class="h-auto max-w-full rounded-lg hover-lift" src="https://placehold.co/800x600/1e293b/94a3b8?text=Photo+4" alt="">
+                        </div>
+                    </div>
+                    <div class="grid gap-4">
+                        <div>
+                            <img class="h-auto max-w-full rounded-lg hover-lift" src="https://placehold.co/800x600/1e293b/94a3b8?text=Photo+5" alt="">
+                        </div>
+                        <div>
+                            <img class="h-auto max-w-full rounded-lg hover-lift" src="https://placehold.co/800x1200/1e293b/94a3b8?text=Photo+6" alt="">
+                        </div>
+                    </div>
+                    <div class="grid gap-4">
+                        <div>
+                            <img class="h-auto max-w-full rounded-lg hover-lift" src="https://placehold.co/800x1200/1e293b/94a3b8?text=Photo+7" alt="">
+                        </div>
+                        <div>
+                            <img class="h-auto max-w-full rounded-lg hover-lift" src="https://placehold.co/800x600/1e293b/94a3b8?text=Photo+8" alt="">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="mt-20 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-white">Get In Touch</h2>
+            <p class="text-slate-400 mt-2">Feel free to reach out via email or connect with me on social media.</p>
+            <div class="mt-6 flex justify-center space-x-6">
+                <a href="mailto:email@example.com" class="text-slate-400 hover:text-sky-400 transition-colors">
+                    <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                    </svg>
+                </a>
+                <a href="https://github.com/angadc" target="_blank" class="text-slate-400 hover:text-sky-400 transition-colors">
+                     <svg class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/angadchhibber" target="_blank" class="text-slate-400 hover:text-sky-400 transition-colors">
+                    <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.25 6.5 1.75 1.75 0 016.5 8.25zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path></svg>
+                </a>
+            </div>
+            <p class="mt-8 text-slate-500 text-sm">&copy; 2024 Angad Chhibber. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
+
+
+
+
+
+
