@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlobeTrotter-Lunar (GTL) Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000; /* Black */
+            color: #F3F4F6; /* Light gray */
+        }
+        .hero-section {
+            background: linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.8)), url('https://images.unsplash.com/photo-1614728263952-84ea256ec346?q=80&w=2070&auto=format&fit=crop') no-repeat center center;
+            background-size: cover;
+        }
+        .section-title {
+            @apply text-4xl font-bold text-center mb-12 text-white relative;
+        }
+        .section-title::after {
+            content: '';
+            @apply block w-24 h-1 bg-orange-500 mx-auto mt-4 rounded;
+        }
+        .card {
+            @apply bg-gray-800 p-8 rounded-2xl shadow-lg transition-transform transform hover:-translate-y-2;
+        }
+        .btn {
+            @apply px-8 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition-colors shadow-md;
+        }
+        .stat-card {
+            @apply bg-gray-800 p-6 rounded-lg text-center;
+        }
+        nav a {
+             @apply relative text-white;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #F97316; /* Orange-500 */
+            transition: width 0.3s ease-in-out;
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50 shadow-lg">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-white flex items-center">
+                <span>GlobeTrotter-Lunar (GTL)</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="hover:text-orange-500 transition-colors">Home</a>
+                <a href="#challenge" class="hover:text-orange-500 transition-colors">The Challenge</a>
+                <a href="#solution" class="hover:text-orange-500 transition-colors">The Solution</a>
+                <a href="#concept" class="hover:text-orange-500 transition-colors">Concept of Operations</a>
+                <a href="#tech" class="hover:text-orange-500 transition-colors">Technology</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="index.html" class="block py-2 px-4 text-sm hover:bg-gray-800">Home</a>
+            <a href="#challenge" class="block py-2 px-4 text-sm hover:bg-gray-800">The Challenge</a>
+            <a href="#solution" class="block py-2 px-4 text-sm hover:bg-gray-800">The Solution</a>
+            <a href="#concept" class="block py-2 px-4 text-sm hover:bg-gray-800">Concept of Operations</a>
+            <a href="#tech" class="block py-2 px-4 text-sm hover:bg-gray-800">Technology</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section py-32">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-4 leading-tight">Exploring Lunar Pits and Lava Tubes</h1>
+                <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">A new concept for a tethered, rolling probe to explore scientifically rich but hard-to-reach lunar pits and subsurface lava tubes.</p>
+                <a href="https://www.hou.usra.edu/meetings/leag2023/pdf/2923.pdf" target="_blank" class="btn text-lg">Read the Paper &rarr;</a>
+            </div>
+        </section>
+
+        <!-- The Challenge Section -->
+        <section id="challenge" class="py-24 bg-black">
+            <div class="container mx-auto px-6">
+                <h3 class="text-2xl font-bold text-white mb-2">The Challenge of Subsurface Exploration</h3>
+                <p class="text-center text-gray-400 max-w-3xl mx-auto mb-16">Lunar pits are gateways to subsurface lava tubes, which could hold clues to the Moon's history and provide radiation-shielded habitats for future astronauts. However, their steep, rugged terrain makes them incredibly difficult and risky to explore with traditional rovers.</p>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="stat-card">
+                        <div class="text-orange-500 text-5xl mb-4"><i class="fas fa-arrows-alt-v"></i></div>
+                        <h3 class="text-2xl font-bold text-white mb-2">> 100 Meters Deep</h3>
+                        <p class="text-gray-400">Many lunar pits are deeper than the Statue of Liberty is tall, featuring near-vertical walls.</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="text-orange-500 text-5xl mb-4"><i class="fas fa-mountain"></i></div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Unstable Terrain</h3>
+                        <p class="text-gray-400">Pit floors are covered in a chaotic mix of boulders and regolith, a major hazard for wheeled rovers.</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="text-orange-500 text-5xl mb-4"><i class="fas fa-robot"></i></div>
+                        <h3 class="text-2xl font-bold text-white mb-2">High-Risk Operations</h3>
+                        <p class="text-gray-400">Current concepts involving rappelling rovers are mechanically complex and present numerous single points of failure.</p>
+                    </div>
+                </div>
+
+                <div class="mt-16 p-8 bg-gray-800 rounded-lg shadow-lg flex flex-col md:flex-row items-center gap-8">
+                    <div class="md:w-1/3 text-center">
+                         <img src="GlobeTrotter.png?text=Lunar+Pit+Image" alt="Illustration of a Lunar Pit" class="rounded-lg shadow-md mx-auto">
+                    </div>
+                    <div class="md:w-2/3">
+                        <h3 class="text-3xl font-bold text-white mb-4">A Need for a New Approach</h3>
+                        <p class="text-gray-400 mb-4">To safely unlock the scientific potential of these unique lunar features, a more robust, simpler, and fault-tolerant exploration system is required. The high risk of losing a multi-million dollar rover calls for a paradigm shift in how we approach subsurface exploration.</p>
+                        <p class="text-gray-400">Our GTL concept is designed to be that paradigm shift, prioritizing simplicity and resilience over complex mechanics.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Solution Section -->
+        <section id="solution" class="py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">The GlobeTrotter-Lunar (GTL)</h2>
+                <p class="text-center text-gray-400 max-w-3xl mx-auto mb-16">The GTL is a spherical, tethered, rolling probe. Its design is centered on mechanical simplicity and robustness, allowing it to explore high-risk environments by simply rolling and tumbling down steep slopes.</p>
+
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-3xl font-bold text-white mb-6">Key Design Features</h3>
+                        <ul class="space-y-4 text-gray-300">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-orange-500 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-semibold text-lg text-white">Simple & Robust</h4>
+                                    <p>The GTL has no external moving parts. Its spherical cage is designed to withstand tumbling, protecting the sensitive instruments inside.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-crosshairs text-orange-500 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-semibold text-lg text-white">Stable Instrument Platform</h4>
+                                    <p>An internal gimbal system keeps the scientific payload (cameras, spectrometers) stable and pointed, regardless of the outer cage's orientation or movement.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-link text-orange-500 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-semibold text-lg text-white">Tethered Connection</h4>
+                                    <p>A tether provides continuous power and a high-bandwidth data link to a host lander or rover, and allows for potential retrieval of the probe.</p>
+                                </div>
+                            </li>
+                             <li class="flex items-start">
+                                <i class="fas fa-rocket text-orange-500 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-semibold text-lg text-white">Low-Mass & Compact</h4>
+                                    <p>The simple design allows for a low-mass system that can be easily accommodated on a variety of lunar landers and rovers.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="p-4 bg-gray-800 rounded-lg">
+                        <img src="https://placehold.co/600x400/1F2937/F97316?text=GTL+Concept+Art" alt="GTL Concept Art" class="rounded-lg shadow-2xl w-full h-auto">
+                         <p class="text-sm text-gray-500 mt-2 text-center">Developed under the mentorship of Dr. Pascal Lee at the Mars Institute.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Concept of Operations Section -->
+        <section id="concept" class="py-24 bg-black">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Concept of Operations</h2>
+                <div class="mt-12 grid md:grid-cols-5 gap-8 text-center text-gray-300">
+                    <div class="step">
+                        <div class="text-3xl font-bold text-orange-500 mb-2">1</div>
+                        <h4 class="font-semibold text-white mb-1">Deployment</h4>
+                        <p class="text-sm">The GTL is deployed from a host lander or rover near the edge of a lunar pit.</p>
+                    </div>
+                    <div class="step">
+                        <div class="text-3xl font-bold text-orange-500 mb-2">2</div>
+                        <h4 class="font-semibold text-white mb-1">Approach</h4>
+                        <p class="text-sm">The GTL rolls towards the pit edge, powered by an internal flywheel or the host vehicle.</p>
+                    </div>
+                    <div class="step">
+                        <div class="text-3xl font-bold text-orange-500 mb-2">3</div>
+                        <h4 class="font-semibold text-white mb-1">Entry & Descent</h4>
+                        <p class="text-sm">The probe rolls over the edge, tumbling down the steep slope while the tether unspools.</p>
+                    </div>
+                    <div class="step">
+                        <div class="text-3xl font-bold text-orange-500 mb-2">4</div>
+                        <h4 class="font-semibold text-white mb-1">Exploration</h4>
+                        <p class="text-sm">The GTL explores the pit floor and the entrance to any accessible lava tubes, relaying data via its tether.</p>
+                    </div>
+                    <div class="step">
+                        <div class="text-3xl font-bold text-orange-500 mb-2">5</div>
+                        <h4 class="font-semibold text-white mb-1">Retrieval (Optional)</h4>
+                        <p class="text-sm">The tether can be used by the host vehicle to retrieve the GTL probe from the pit after its mission.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Technology Section -->
+        <section id="tech" class="py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Core Technologies</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="card">
+                        <div class="text-4xl text-orange-500 mb-4"><i class="fas fa-globe"></i></div>
+                        <h3 class="text-2xl font-bold mb-3 text-white">Spherical Protective Cage</h3>
+                        <p class="text-gray-400">A robust, lightweight cage made from materials like carbon fiber or titanium alloys. It absorbs impacts from tumbling, protecting the internal payload and ensuring mission survival in rugged terrain.</p>
+                    </div>
+                    <div class="card">
+                        <div class="text-4xl text-orange-500 mb-4"><i class="fas fa-compass"></i></div>
+                        <h3 class="text-2xl font-bold mb-3 text-white">Gimballed Instrument Payload</h3>
+                        <p class="text-gray-400">An actively stabilized platform inside the cage that keeps instruments (high-res cameras, spectrometers, etc.) isolated from the cage's rotation, allowing for stable data collection and imaging.</p>
+                    </div>
+                    <div class="card">
+                        <div class="text-4xl text-orange-500 mb-4"><i class="fas fa-ethernet"></i></div>
+                        <h3 class="text-2xl font-bold mb-3 text-white">Power & Data Tether</h3>
+                        <p class="text-gray-400">A high-strength, lightweight tether that provides power to the probe and enables reliable, high-bandwidth communication with the surface asset, eliminating the need for complex radio links from within a cave.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-8">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+             <p class="mb-2">Paper accepted for the 2023 Annual Meeting of the Lunar Exploration Analysis Group (LEAG).</p>
+            <p>This project was developed through the Mars Institute's Global Research Internship Program (MI-GRIP). Special thanks to mentor Dr. Pascal Lee.</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when a link is clicked
+        const mobileLinks = mobileMenu.getElementsByTagName('a');
+        for(let link of mobileLinks) {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        }
+    </script>
+</body>
+</html>
