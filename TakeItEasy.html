@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take it Easy Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000; /* Black */
+            color: #F3F4F6; /* Light gray */
+        }
+        .hero-section {
+            background-color: #111827; /* Dark blue-gray */
+        }
+        .section-title {
+            @apply text-4xl font-bold text-center mb-12 text-white relative;
+        }
+        .section-title::after {
+            content: '';
+            @apply block w-24 h-1 bg-orange-500 mx-auto mt-4 rounded;
+        }
+        .card {
+            @apply bg-gray-800 p-8 rounded-2xl shadow-lg transition-transform transform hover:-translate-y-2;
+        }
+        .btn {
+            @apply px-8 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition-colors shadow-md;
+        }
+        .stat-card {
+            @apply bg-gray-800 p-6 rounded-lg text-center;
+        }
+        nav a {
+             @apply relative text-white;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #F97316; /* Orange-500 */
+            transition: width 0.3s ease-in-out;
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50 shadow-lg">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-white flex items-center">
+                <span>The "Take it Easy" Project</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="hover:text-orange-500 transition-colors">Home</a>
+                <a href="#motivation" class="hover:text-orange-500 transition-colors">Motivation</a>
+                <a href="#solution" class="hover:text-orange-500 transition-colors">The Solution</a>
+                <a href="#platforms" class="hover:text-orange-500 transition-colors">Platforms</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="index.html" class="block py-2 px-4 text-sm hover:bg-gray-800">Home</a>
+            <a href="#motivation" class="block py-2 px-4 text-sm hover:bg-gray-800">Motivation</a>
+            <a href="#solution" class="block py-2 px-4 text-sm hover:bg-gray-800">The Solution</a>
+            <a href="#platforms" class="block py-2 px-4 text-sm hover:bg-gray-800">Platforms</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section py-32">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-4 leading-tight">Take it Easy: Own the Pace</h1>
+                <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">An application designed to help users overcome stutters and speech impediments by providing a controlled, paced reading experience.</p>
+            </div>
+        </section>
+
+        <!-- Motivation Section -->
+        <section id="motivation" class="py-24 bg-black">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Why I Built This</h2>
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2 p-4">
+                        <img src="TIE.png" alt="TakeItEasy" class="rounded-lg shadow-2xl w-full max-w-sm mx-auto">
+                    </div>
+                    <div class="md:w-1/2">
+                        <h3 class="text-3xl font-bold text-white mb-6">A Personal Journey</h3>
+                        <p class="text-gray-300 mb-4">Ever since I was young, I've had a mild stutter. Over time, I've learned to control it, and the most important thing for me to remember is to speak slowly. However, school and society often pressure us to do everything fast: read fast, write fast, think fast. This pressure often caused me to speak too quickly.</p>
+                        <p class="text-gray-300">When I looked for tools to help, all I found were apps designed to make people read faster. I realized there was a need for the opposite—a tool to help people slow down. So, I created "Take it Easy" for myself and for anyone else who wants to take things at their own pace.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Solution Section -->
+        <section id="solution" class="py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">The Solution</h2>
+                <p class="text-center text-gray-400 max-w-3xl mx-auto mb-16">"Take it Easy" is a speech-driven slow reading program. It takes a piece of text and displays it word by word, pausing after each word is shown. This simple but effective mechanism forces the user to read at a deliberate, controlled pace, which can be immensely helpful in managing stutters and improving speech fluency.</p>
+                
+                <div class="p-8 bg-gray-800 rounded-lg text-center max-w-4xl mx-auto">
+                     <i class="fas fa-quote-left text-orange-500 text-3xl mb-4"></i>
+                     <a href="https://www.independentnews.com/news/dublin_news/dublin-highs-angad-chhibber-releases-app-to-help-others-overcome-stuttering-speech-impediments/article_9c808aac-1b6e-11ee-932a-6b7d71cc788c.html#fireglass_params&tabid=a6d406ec3dcb1162&application_server_address=isolation-1-us-west1.prod.fire.glass&popup=true&is_right_side_popup=false&start_with_session_counter=1"><h3 class="text-2xl font-bold text-white mb-2">Featured in the News</h3></a>
+                     <img src="TIE_Independent.png"></img>
+                     <p class="text-gray-400">The project was featured by the Independent News for its innovative approach to helping people with speech impediments.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Platforms Section -->
+        <section id="platforms" class="py-24 bg-black">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Available on All Platforms</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="card text-center">
+                        <div class="text-6xl text-orange-500 mb-4"><i class="fab fa-apple"></i></div>
+                        <h3 class="text-2xl font-bold mb-3 text-white">iOS App</h3>
+                        <p class="text-gray-400 mb-6">A fully native app available on the Apple App Store. It pauses based on the number of syllables in each word.</p>
+                        <a href="https://apps.apple.com/app/take-reading-easy/id6446603756" target="_blank" class="btn">View on App Store</a>
+                    </div>
+                    <div class="card text-center">
+                        <div class="text-6xl text-orange-500 mb-4"><i class="fas fa-globe"></i></div>
+                        <h3 class="text-2xl font-bold mb-3 text-white">Web Interface</h3>
+                        <p class="text-gray-400 mb-6">A browser-based version that provides the core functionality on any device with a web browser.</p>
+                        <a href="http://takeiteasy.angadc.net/" target="_blank" class="btn">Launch Web App</a>
+                    </div>
+                    <div class="card text-center">
+                        <div class="text-6xl text-orange-500 mb-4"><i class="fab fa-python"></i></div>
+                        <h3 class="text-2xl font-bold mb-3 text-white">Python Script</h3>
+                        <p class="text-gray-400 mb-6">An advanced version using Google Speech-to-Text that listens for the user to speak the word before proceeding.</p>
+                        <a href="https://github.com/Angad-C/TakeltEasy" target="_blank" class="btn">View on GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-8">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+             <p>A personal project born from a desire to create a tool that didn't exist, helping users control their reading pace to improve speech fluency.</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when a link is clicked
+        const mobileLinks = mobileMenu.getElementsByTagName('a');
+        for(let link of mobileLinks) {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        }
+    </script>
+</body>
+</html>
+
