@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinetic Sculpture Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000; /* Black */
+            color: #F3F4F6; /* Light gray */
+        }
+        .hero-section {
+            background-color: #111827; /* Dark Slate Gray */
+        }
+        .section-title {
+            @apply text-4xl font-bold text-center mb-12 text-white relative;
+        }
+        .section-title::after {
+            content: '';
+            @apply block w-24 h-1 bg-orange-500 mx-auto mt-4 rounded;
+        }
+        .card {
+            @apply bg-gray-800 p-8 rounded-2xl shadow-lg transition-transform transform hover:-translate-y-2;
+        }
+        .btn {
+            @apply px-8 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition-colors shadow-md;
+        }
+        .stat-card {
+            @apply bg-gray-800 p-6 rounded-lg text-center;
+        }
+        nav a {
+             @apply relative text-white;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #F97316; /* Orange-500 */
+            transition: width 0.3s ease-in-out;
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50 shadow-lg">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-white flex items-center">
+                <span>Kinetic Sculpture</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="hover:text-orange-500 transition-colors">Home</a>
+                <a href="#objective" class="hover:text-orange-500 transition-colors">The Objective</a>
+                <a href="#design" class="hover:text-orange-500 transition-colors">The Design</a>
+                <a href="#process" class="hover:text-orange-500 transition-colors">Fabrication Process</a>
+                <a href="#tech" class="hover:text-orange-500 transition-colors">Technology</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="index.html" class="block py-2 px-4 text-sm hover:bg-gray-800">Home</a>
+            <a href="#objective" class="block py-2 px-4 text-sm hover:bg-gray-800">The Objective</a>
+            <a href="#design" class="block py-2 px-4 text-sm hover:bg-gray-800">The Design</a>
+            <a href="#process" class="block py-2 px-4 text-sm hover:bg-gray-800">Fabrication Process</a>
+            <a href="#tech" class="block py-2 px-4 text-sm hover:bg-gray-800">Technology</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section py-32">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-4 leading-tight">Kinetic Sculpture: A Symphony in Motion</h1>
+                <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">A fun team project to design and build a kinetic sculpture powered by a belt-driven motor, all fitting within a compact space.</p>
+                <a href="https://drive.google.com/file/d/1qYbT7RrFYMJUcbcCC54x2SDhoRbe1PNx/view" target="_blank" class="btn text-lg">Read the Project Report &rarr;</a>
+            </div>
+        </section>
+
+        <!-- The Objective Section -->
+        <section id="objective" class="py-24 bg-black">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">The Project Objective</h2>
+                <p class="text-center text-gray-400 max-w-3xl mx-auto mb-16">The main goal was to work as a team to create a visually engaging kinetic sculpture. The key constraints were that the motion had to be driven by a single motor via a belt-drive system, and the entire sculpture had to be contained within a 12" x 12" x 5" volume.</p>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="stat-card">
+                        <div class="text-orange-500 text-5xl mb-4"><i class="fas fa-sync-alt"></i></div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Belt-Driven Motion</h3>
+                        <p class="text-gray-400">The sculpture's movement had to originate from a single DC motor and be transmitted via a belt drive.</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="text-orange-500 text-5xl mb-4"><i class="fas fa-expand-arrows-alt"></i></div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Complex Movement</h3>
+                        <p class="text-gray-400">The design needed to produce an interesting, multi-layered motion from the single power source.</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="text-orange-500 text-5xl mb-4"><i class="fas fa-box-open"></i></div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Compact Design</h3>
+                        <p class="text-gray-400">The entire assembly was required to fit within a strict 12" x 12" x 5" volume.</p>
+                    </div>
+                </div>
+
+                <div class="mt-16 p-8 bg-gray-800 rounded-lg shadow-lg flex flex-col md:flex-row items-center gap-8">
+                    <div class="md:w-1/3 text-center">
+                         <img src="https://placehold.co/400x300/1F2937/F97316?text=Sculpture+Sketch" alt="Illustration of a Kinetic Sculpture Concept" class="rounded-lg shadow-md mx-auto">
+                    </div>
+                    <div class="md:w-2/3">
+                        <h3 class="text-3xl font-bold text-white mb-4">A Collaborative Creation</h3>
+                        <p class="text-gray-400 mb-4">Our team's vision was to create a mesmerizing, layered motion using a series of gears. The project became a comprehensive exercise in integrating various manufacturing techniques to bring a dynamic piece of art to life.</p>
+                        <p class="text-gray-400">It challenged us to blend creative design with precise engineering, managing power transmission, material selection, and assembly within tight constraints.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Design Section -->
+        <section id="design" class="py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">The Mechanical Design</h2>
+                <p class="text-center text-gray-400 max-w-3xl mx-auto mb-16">Our design features a large central gear driven by the motor's belt drive. Mounted on this main gear are smaller planetary gears that counter-rotate as the main gear turns. This creates a captivating, multi-layered "gears-within-a-gear" motion.</p>
+
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-3xl font-bold text-white mb-6">Key Mechanical Features</h3>
+                        <ul class="space-y-4 text-gray-300">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-orange-500 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-semibold text-lg text-white">Belt Drive & Pulleys</h4>
+                                    <p>A 3D-printed pulley system transmits power from the motor to the main gear assembly efficiently and quietly.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-cogs text-orange-500 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-semibold text-lg text-white">Cascading Gear Train</h4>
+                                    <p>The main gear drives smaller gears, resulting in a complex and visually interesting motion from a single input.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-layer-group text-orange-500 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-semibold text-lg text-white">Mixed-Material Assembly</h4>
+                                    <p>The sculpture utilizes laser-cut plywood for the structural frame and gears, with 3D-printed components for pulleys and spacers.</p>
+                                </div>
+                            </li>
+                             <li class="flex items-start">
+                                <i class="fas fa-pen-ruler text-orange-500 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-semibold text-lg text-white">Precision Manufacturing</h4>
+                                    <p>Every part was carefully designed in Onshape and fabricated using tools like the laser cutter, 3D printer, and lathe for a precise fit and smooth operation.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="p-4 bg-gray-800 rounded-lg">
+                        <img src="https://i.imgur.com/8Qj8jJc.png" alt="CAD Model of the Kinetic Sculpture" class="rounded-lg shadow-2xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1F2937/F97316?text=Sculpture+CAD';">
+                         <p class="text-sm text-gray-500 mt-2 text-center">Final CAD assembly rendered in Onshape.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process" class="py-24 bg-black">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Design & Fabrication Process</h2>
+                 <img src="https://i.imgur.com/kS9T7gI.png" alt="Image of the assembled sculpture" class="rounded-lg shadow-xl mx-auto bg-white p-2" onerror="this.onerror=null;this.src='https://placehold.co/1200x600/111827/F3F4F6?text=Final+Assembly';">
+                <div class="mt-12 grid md:grid-cols-4 gap-8 text-center text-gray-300">
+                    <div class="step">
+                        <div class="text-3xl font-bold text-orange-500 mb-2">1</div>
+                        <h4 class="font-semibold text-white mb-1">Ideation & Sketching</h4>
+                        <p class="text-sm">Our team brainstormed various concepts for motion, settling on the cascading gears idea for its visual appeal.</p>
+                    </div>
+                    <div class="step">
+                        <div class="text-3xl font-bold text-orange-500 mb-2">2</div>
+                        <h4 class="font-semibold text-white mb-1">CAD Modeling</h4>
+                        <p class="text-sm">We designed the entire assembly in Onshape, simulating the gear interactions and ensuring all parts fit within the size constraints.</p>
+                    </div>
+                    <div class="step">
+                        <div class="text-3xl font-bold text-orange-500 mb-2">3</div>
+                        <h4 class="font-semibold text-white mb-1">Multi-Tool Fabrication</h4>
+                        <p class="text-sm">We used a laser cutter for the plywood gears and frame, a 3D printer for the pulleys, and a lathe for custom shafts and spacers.</p>
+                    </div>
+                    <div class="step">
+                        <div class="text-3xl font-bold text-orange-500 mb-2">4</div>
+                        <h4 class="font-semibold text-white mb-1">Assembly & Integration</h4>
+                        <p class="text-sm">The final phase involved assembling all components, mounting the motor, and tensioning the belt to bring the sculpture to life.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Technology Section -->
+        <section id="tech" class="py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Tools & Technologies Used</h2>
+                <div class="grid md:grid-cols-4 gap-8">
+                    <div class="card">
+                        <div class="text-4xl text-orange-500 mb-4"><i class="fas fa-cube"></i></div>
+                        <h3 class="text-xl font-bold mb-3 text-white">Onshape (CAD)</h3>
+                        <p class="text-gray-400">Used for the complete 3D design, allowing for collaborative work and precise modeling of the intricate gear system.</p>
+                    </div>
+                    <div class="card">
+                        <div class="text-4xl text-orange-500 mb-4"><i class="fas fa-laser"></i></div>
+                        <h3 class="text-xl font-bold mb-3 text-white">Laser Cutting</h3>
+                        <p class="text-gray-400">Essential for fabricating the flat components like the main chassis and gears from plywood with high accuracy.</p>
+                    </div>
+                    <div class="card">
+                        <div class="text-4xl text-orange-500 mb-4"><i class="fas fa-print"></i></div>
+                        <h3 class="text-xl font-bold mb-3 text-white">3D Printing</h3>
+                        <p class="text-gray-400">Used to create more complex geometric parts like the motor pulley and spacers, which would be difficult to machine traditionally.</p>
+                    </div>
+                    <div class="card">
+                        <div class="text-4xl text-orange-500 mb-4"><i class="fas fa-circle-notch"></i></div>
+                        <h3 class="text-xl font-bold mb-3 text-white">Lathe</h4>
+                        <p class="text-gray-400">A manual lathe was used to create custom-sized shafts and axles, ensuring a perfect fit and smooth rotation for the gears.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-8">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+             <p class="mb-2">A team project for the Design & Manufacturing course at Olin College of Engineering.</p>
+            <p>This project showcases the integration of multiple design and fabrication techniques to create a complex, functional piece of kinetic art.</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when a link is clicked
+        const mobileLinks = mobileMenu.getElementsByTagName('a');
+        for(let link of mobileLinks) {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        }
+    </script>
+</body>
+</html>
+
