@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Automata Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000; /* Black */
+            color: #F3F4F6; /* Light gray */
+        }
+        .hero-section {
+            background: linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.8)), url('https://images.unsplash.com/photo-1507207611509-5043ee53342d?q=80&w=2070&auto=format&fit=crop') no-repeat center center;
+            background-size: cover;
+        }
+        .section-title {
+            @apply text-4xl font-bold text-center mb-12 text-white relative;
+        }
+        .section-title::after {
+            content: '';
+            @apply block w-24 h-1 bg-orange-500 mx-auto mt-4 rounded;
+        }
+        .card {
+            @apply bg-gray-800 p-8 rounded-2xl shadow-lg transition-transform transform hover:-translate-y-2;
+        }
+        .btn {
+            @apply px-8 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition-colors shadow-md;
+        }
+        .stat-card {
+            @apply bg-gray-800 p-6 rounded-lg text-center;
+        }
+        nav a {
+             @apply relative text-white;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #F97316; /* Orange-500 */
+            transition: width 0.3s ease-in-out;
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50 shadow-lg">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-white flex items-center">
+                <span>Simple Automata</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="hover:text-orange-500 transition-colors">Home</a>
+                <a href="#objective" class="hover:text-orange-500 transition-colors">The Objective</a>
+                <a href="#design" class="hover:text-orange-500 transition-colors">The Design</a>
+                <a href="#process" class="hover:text-orange-500 transition-colors">Fabrication Process</a>
+                <a href="#tech" class="hover:text-orange-500 transition-colors">Technology</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="index.html" class="block py-2 px-4 text-sm hover:bg-gray-800">Home</a>
+            <a href="#objective" class="block py-2 px-4 text-sm hover:bg-gray-800">The Objective</a>
+            <a href="#design" class="block py-2 px-4 text-sm hover:bg-gray-800">The Design</a>
+            <a href="#process" class="block py-2 px-4 text-sm hover:bg-gray-800">Fabrication Process</a>
+            <a href="#tech" class="block py-2 px-4 text-sm hover:bg-gray-800">Technology</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section py-32">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-4 leading-tight">Simple Automata: The Olin Pop-Up</h1>
+                <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">An Olin College of Engineering project to design and build a mechanical automaton with a single input and a single, distinct output.</p>
+                <a href="https://drive.google.com/file/d/1YIkqeavZ328Px73ACAQqyyq_5AWxbfZx/view" target="_blank" class="btn text-lg">Read the Project Report &rarr;</a>
+            </div>
+        </section>
+
+        <!-- The Objective Section -->
+        <section id="objective" class="py-24 bg-black">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">The Project Objective</h2>
+                <p class="text-center text-gray-400 max-w-3xl mx-auto mb-16">The core challenge was to create a purely mechanical device that translates a single input motion (like turning a crank) into a single, repeatable output motion. The entire machine had to be designed from scratch and fit within a specific size constraint.</p>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="stat-card">
+                        <div class="text-orange-500 text-5xl mb-4"><i class="fas fa-arrow-down"></i></div>
+                        <h3 class="text-2xl font-bold text-white mb-2">One Input</h3>
+                        <p class="text-gray-400">The automaton could only have one point of user interaction to initiate its movement.</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="text-orange-500 text-5xl mb-4"><i class="fas fa-arrow-up"></i></div>
+                        <h3 class="text-2xl font-bold text-white mb-2">One Output</h3>
+                        <p class="text-gray-400">This single input had to translate into one clear, observable output action.</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="text-orange-500 text-5xl mb-4"><i class="fas fa-box-open"></i></div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Size Constraint</h3>
+                        <p class="text-gray-400">The entire assembly needed to fit within a 12" x 5" x 12" volume.</p>
+                    </div>
+                </div>
+
+                <div class="mt-16 p-8 bg-gray-800 rounded-lg shadow-lg flex flex-col md:flex-row items-center gap-8">
+                    <div class="md:w-1/3 text-center">
+                         <img src="https://placehold.co/400x300/1F2937/F97316?text=Automata+Sketch" alt="Illustration of an Automata Concept" class="rounded-lg shadow-md mx-auto">
+                    </div>
+                    <div class="md:w-2/3">
+                        <h3 class="text-3xl font-bold text-white mb-4">From Idea to Mechanism</h3>
+                        <p class="text-gray-400 mb-4">The goal was to design something that was not just functional, but also representative of our environment at Olin. This led to the idea of a machine that, when cranked, would cause the Olin "O" logo to pop up from a flat surface.</p>
+                        <p class="text-gray-400">This project was an exercise in mechanical design, CAD modeling, and rapid prototyping, translating a simple concept into a tangible, working device.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Design Section -->
+        <section id="design" class="py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">The Mechanical Design</h2>
+                <p class="text-center text-gray-400 max-w-3xl mx-auto mb-16">The solution is an automaton that uses a cam and follower mechanism. Turning a hand crank rotates a specially shaped cam, which in turn pushes a follower connected to a linkage. This linkage raises the Olin "O" logo, which then retracts as the cam completes its rotation.</p>
+
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-3xl font-bold text-white mb-6">Key Mechanical Features</h3>
+                        <ul class="space-y-4 text-gray-300">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-orange-500 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-semibold text-lg text-white">Cam & Follower System</h4>
+                                    <p>The core of the machine. The input crank rotates the cam, and the cam's profile dictates the precise motion of the output.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-cogs text-orange-500 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-semibold text-lg text-white">Lever and Linkage</h4>
+                                    <p>A simple lever system translates the vertical motion of the cam follower into the pop-up action of the Olin logo.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-layer-group text-orange-500 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-semibold text-lg text-white">Layered Plywood Construction</h4>
+                                    <p>The entire automaton is built from layers of laser-cut plywood, creating a strong, precise, and easily assembled chassis.</p>
+                                </div>
+                            </li>
+                             <li class="flex items-start">
+                                <i class="fas fa-pen-ruler text-orange-500 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-semibold text-lg text-white">Designed for Fabrication</h4>
+                                    <p>All parts were designed in Onshape with laser cutting tolerances in mind, ensuring a perfect fit during assembly.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="p-4 bg-gray-800 rounded-lg">
+                        <img src="https://i.imgur.com/kY7aY9v.png" alt="CAD Model of the Simple Automata" class="rounded-lg shadow-2xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1F2937/F97316?text=Automata+CAD';">
+                         <p class="text-sm text-gray-500 mt-2 text-center">Final CAD assembly rendered in Onshape.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process" class="py-24 bg-black">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Design & Fabrication Process</h2>
+                 <img src="https://i.imgur.com/gK7gPpi.png" alt="Image of the assembled Automata" class="rounded-lg shadow-xl mx-auto bg-white p-2" onerror="this.onerror=null;this.src='https://placehold.co/1200x600/111827/F3F4F6?text=Final+Assembly';">
+                <div class="mt-12 grid md:grid-cols-4 gap-8 text-center text-gray-300">
+                    <div class="step">
+                        <div class="text-3xl font-bold text-orange-500 mb-2">1</div>
+                        <h4 class="font-semibold text-white mb-1">Brainstorming</h4>
+                        <p class="text-sm">Conceptualizing a simple, engaging motion that could be achieved mechanically and had a connection to Olin.</p>
+                    </div>
+                    <div class="step">
+                        <div class="text-3xl font-bold text-orange-500 mb-2">2</div>
+                        <h4 class="font-semibold text-white mb-1">CAD Modeling</h4>
+                        <p class="text-sm">Designing every component in Onshape, from the cam and linkages to the chassis, ensuring all parts fit and function together virtually.</p>
+                    </div>
+                    <div class="step">
+                        <div class="text-3xl font-bold text-orange-500 mb-2">3</div>
+                        <h4 class="font-semibold text-white mb-1">Laser Cutting</h4>
+                        <p class="text-sm">Exporting the 2D part designs from Onshape and using a laser cutter to precisely fabricate the components from plywood.</p>
+                    </div>
+                    <div class="step">
+                        <div class="text-3xl font-bold text-orange-500 mb-2">4</div>
+                        <h4 class="font-semibold text-white mb-1">Assembly & Testing</h4>
+                        <p class="text-sm">Assembling the cut pieces and testing the mechanism to ensure smooth operation and a successful final product.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Technology Section -->
+        <section id="tech" class="py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Tools & Technologies Used</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="card">
+                        <div class="text-4xl text-orange-500 mb-4"><i class="fas fa-cube"></i></div>
+                        <h3 class="text-2xl font-bold mb-3 text-white">Onshape (CAD)</h3>
+                        <p class="text-gray-400">A cloud-based 3D CAD software was used for the entire design process. This allowed for precise modeling of parts, creating virtual assemblies, and ensuring mechanical feasibility before any material was cut.</p>
+                    </div>
+                    <div class="card">
+                        <div class="text-4xl text-orange-500 mb-4"><i class="fas fa-laser"></i></div>
+                        <h3 class="text-2xl font-bold mb-3 text-white">Laser Cutting</h3>
+                        <p class="text-gray-400">A laser cutter was the primary fabrication tool. It translated the digital designs from Onshape into physical parts with high precision and speed, enabling rapid prototyping and a clean final build.</p>
+                    </div>
+                    <div class="card">
+                        <div class="text-4xl text-orange-500 mb-4"><i class="fas fa-project-diagram"></i></div>
+                        <h3 class="text-2xl font-bold mb-3 text-white">Mechanical Principles</h3>
+                        <p class="text-gray-400">The project is a practical application of fundamental mechanical engineering principles, including cam/follower systems, linkages, levers, and kinematic motion, all within a constrained design space.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-8">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+             <p class="mb-2">A project for the Design & Manufacturing course at Olin College of Engineering.</p>
+            <p>This project demonstrates the full design cycle from concept to a functional, fabricated prototype.</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when a link is clicked
+        const mobileLinks = mobileMenu.getElementsByTagName('a');
+        for(let link of mobileLinks) {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        }
+    </script>
+</body>
+</html>
