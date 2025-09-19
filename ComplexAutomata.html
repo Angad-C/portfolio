@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acronym Automaton Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000; /* Black */
+            color: #F3F4F6; /* Light gray */
+        }
+        .hero-section {
+            background-color: #111827; /* Replaced image with a solid dark gray background */
+        }
+        .section-title {
+            @apply text-4xl font-bold text-center mb-12 text-white relative;
+        }
+        .section-title::after {
+            content: '';
+            @apply block w-24 h-1 bg-orange-500 mx-auto mt-4 rounded;
+        }
+        .card {
+            @apply bg-gray-800 p-8 rounded-2xl shadow-lg transition-transform transform hover:-translate-y-2;
+        }
+        .btn {
+            @apply px-8 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition-colors shadow-md;
+        }
+        .stat-card {
+            @apply bg-gray-800 p-6 rounded-lg text-center;
+        }
+        nav a {
+             @apply relative text-white;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #F97316; /* Orange-500 */
+            transition: width 0.3s ease-in-out;
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50 shadow-lg">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-white flex items-center">
+                <span>Acronym Automaton</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="hover:text-orange-500 transition-colors">Home</a>
+                <a href="#project" class="hover:text-orange-500 transition-colors">The Project</a>
+                <a href="#mechanisms" class="hover:text-orange-500 transition-colors">Mechanisms</a>
+                <a href="#challenges" class="hover:text-orange-500 transition-colors">Challenges</a>
+                <a href="#skills" class="hover:text-orange-500 transition-colors">Skills</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="index.html" class="block py-2 px-4 text-sm hover:bg-gray-800">Home</a>
+            <a href="#project" class="block py-2 px-4 text-sm hover:bg-gray-800">The Project</a>
+            <a href="#mechanisms" class="block py-2 px-4 text-sm hover:bg-gray-800">Mechanisms</a>
+            <a href="#challenges" class="block py-2 px-4 text-sm hover:bg-gray-800">Challenges</a>
+            <a href="#skills" class="block py-2 px-4 text-sm hover:bg-gray-800">Skills</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section py-32">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-4 leading-tight">Acronym: A Mechanical Automaton</h1>
+                <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">A team project to design and build an automaton representing a unique aspect of Olin College—a coffee-making club named "Acronym."</p>
+                <a href="https://drive.google.com/file/d/1XgXmJ2j4Z3A7y3c8R6F1gYh2kZ7j7J2f/view" target="_blank" class="btn text-lg">View Project Portfolio &rarr;</a>
+            </div>
+        </section>
+
+        <!-- The Project Section -->
+        <section id="project" class="py-24 bg-black">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">The Project Brief</h2>
+                <p class="text-center text-gray-400 max-w-3xl mx-auto mb-16">The core task was to work in a team to create a mechanical automaton that captured something unique about the Olin College of Engineering. Our team chose to build a homage to "Acronym," a student-run coffee-making club, by automating a miniature version of their supply cabinet.</p>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="stat-card">
+                        <div class="text-orange-500 text-5xl mb-4"><i class="fas fa-box-open"></i></div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Compact Design</h3>
+                        <p class="text-gray-400">The final build had to fit within an 18" x 18" x 8" volume and weigh under 15 lbs.</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="text-orange-500 text-5xl mb-4"><i class="fas fa-cogs"></i></div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Mechanism Requirements</h3>
+                        <p class="text-gray-400">The design was required to include a chain drive, a rotational-to-rotational mechanism, and a rotational-to-translational mechanism.</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="text-orange-500 text-5xl mb-4"><i class="fas fa-check-double"></i></div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Successful Outcome</h3>
+                        <p class="text-gray-400">Despite a motor failure due to high friction, all individual mechanisms were designed, built, and functioned as intended, meeting all design requirements.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mechanisms Section -->
+        <section id="mechanisms" class="py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Ingenious Mechanisms</h2>
+                <p class="text-center text-gray-400 max-w-3xl mx-auto mb-16">The automaton integrates several distinct mechanical systems to create a dynamic scene simulating the coffee-making process.</p>
+
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-3xl font-bold text-white mb-6">Key Mechanical Systems</h3>
+                        <ul class="space-y-4 text-gray-300">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-orange-500 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-semibold text-lg text-white">Partial Gear Train</h4>
+                                    <p>A custom-designed partial gear train drives a set of "dancing" gooseneck kettles in a whimsical display.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-orange-500 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-semibold text-lg text-white">Chain-Driven Lazy Susan</h4>
+                                    <p>A chain drive (rotational-to-rotational) rotates a Lazy Susan carrying "coffee bags" filled with marbles.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-orange-500 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-semibold text-lg text-white">2-Bar Linkage System</h4>
+                                    <p>This linkage tips a coffee bag, causing it to dump its marble ("coffee") into the coffee machine.</p>
+                                </div>
+                            </li>
+                             <li class="flex items-start">
+                                <i class="fas fa-check-circle text-orange-500 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-semibold text-lg text-white">Archimedes Screw</h4>
+                                    <p>This mechanism (rotational-to-translational) lifts the marble and deposits it into a cup, completing the cycle.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="p-4 bg-gray-800 rounded-lg">
+                        <img src="https://i.imgur.com/mYg5p0L.jpeg" alt="Photograph of the completed Automaton" class="rounded-lg shadow-2xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x700/1F2937/F97316?text=Completed+Automaton';">
+                         <p class="text-sm text-gray-500 mt-2 text-center">The completed "Acronym" automaton.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Challenges Section -->
+        <section id="challenges" class="py-24 bg-black">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Challenges & Learnings</h2>
+                <div class="grid md:grid-cols-3 gap-8 text-left text-gray-300">
+                    <div class="card">
+                        <div class="text-3xl font-bold text-orange-500 mb-4">1. Precision Planning</div>
+                        <h4 class="font-semibold text-white mb-2 text-lg">Calculating Chain Length</h4>
+                        <p class="text-sm">To avoid manual measurement during assembly, the chain path was sketched in Onshape. Using the split tool, the exact required length was calculated beforehand, streamlining the assembly process significantly.</p>
+                    </div>
+                    <div class="card">
+                        <div class="text-3xl font-bold text-orange-500 mb-4">2. Complex Geometry</div>
+                        <h4 class="font-semibold text-white mb-2 text-lg">Designing Gooseneck Kettles</h4>
+                        <p class="text-sm">Creating the smooth, organic curves of the kettle necks was a challenge. This was solved by learning and applying the Bezier curve feature in Onshape, allowing for precise control over complex curved geometry.</p>
+                    </div>
+                    <div class="card">
+                        <div class="text-3xl font-bold text-orange-500 mb-4">3. Material Awareness</div>
+                        <h4 class="font-semibold text-white mb-2 text-lg">Lathing Stainless Steel</h4>
+                        <p class="text-sm">Mistaking a stainless steel D-shaft for aluminum led to it work-hardening and snapping during lathing. This experience was a critical lesson in material identification and using the correct tools and machine speeds for the job.</p>
+                    </div>
+                </div>
+                 <div class="mt-16 p-4 bg-gray-800 rounded-lg">
+                        <img src="https://i.imgur.com/Xq1vjHj.png" alt="Exploded isometric CAD view of the automaton assembly" class="rounded-lg shadow-2xl w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/1000x800/1F2937/F97316?text=CAD+Assembly';">
+                         <p class="text-sm text-gray-500 mt-2 text-center">Exploded isometric CAD view showing the internal mechanisms.</p>
+                    </div>
+            </div>
+        </section>
+        
+        <!-- Skills Section -->
+        <section id="skills" class="py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Skills Developed</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="card">
+                        <div class="text-4xl text-orange-500 mb-4"><i class="fas fa-drafting-compass"></i></div>
+                        <h3 class="text-2xl font-bold mb-3 text-white">Advanced CAD</h3>
+                        <p class="text-gray-400">Gained proficiency in Onshape, specifically with creating partial gears, using derived features, managing variable studios, and modeling complex geometry with splines and Bezier curves.</p>
+                    </div>
+                    <div class="card">
+                        <div class="text-4xl text-orange-500 mb-4"><i class="fas fa-tools"></i></div>
+                        <h3 class="text-2xl font-bold mb-3 text-white">Fabrication</h3>
+                        <p class="text-gray-400">Honed practical manufacturing skills through hands-on experience with the lathe and 3D printing, translating digital designs into physical components.</p>
+                    </div>
+                    <div class="card">
+                        <div class="text-4xl text-orange-500 mb-4"><i class="fas fa-project-diagram"></i></div>
+                        <h3 class="text-2xl font-bold mb-3 text-white">Engineering Principles</h4>
+                        <p class="text-gray-400">Developed a deeper understanding of designing for manufacturing (DFM) by considering assembly and material properties during the design phase, and practiced effective team collaboration.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-8">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+             <p class="mb-2">A team project for the Olin College of Engineering.</p>
+            <p>This project showcases the integration of multiple mechanical systems and the complete design-to-fabrication process.</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when a link is clicked
+        const mobileLinks = mobileMenu.getElementsByTagName('a');
+        for(let link of mobileLinks) {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        }
+    </script>
+</body>
+</html>
+
