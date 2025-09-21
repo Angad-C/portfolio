@@ -53,7 +53,41 @@
 </head>
 <body class="antialiased">
 
+
     <!-- Header -->
+    <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50 shadow-lg">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-white flex items-center">
+                <span>Angad Chhibber</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-sm font-medium text-slate-300 hover:text-orange-500 transition-colors">About</a>
+                    <a href="#portfolio" class="text-sm font-medium text-slate-300 hover:text-orange-500 transition-colors">Portfolio</a>                    
+                    <a href="#experience" class="text-sm font-medium text-slate-300 hover:text-orange-500 transition-colors">Experience</a>
+                    <a href="#piloting" class="text-sm font-medium text-slate-300 hover:text-orange-500 transition-colors">Piloting</a>
+                    <a href="#creative" class="text-sm font-medium text-slate-300 hover:text-orange-500 transition-colors">Creative</a>
+                    <a href="#contact" class="text-sm font-medium text-slate-300 hover:text-orange-500 transition-colors">Contact</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#about" class="text-sm font-medium text-slate-300 hover:text-orange-500 transition-colors">About</a>
+            <a href="#portfolio" class="text-sm font-medium text-slate-300 hover:text-orange-500 transition-colors">Portfolio</a>                    
+            <a href="#experience" class="text-sm font-medium text-slate-300 hover:text-orange-500 transition-colors">Experience</a>
+            <a href="#piloting" class="text-sm font-medium text-slate-300 hover:text-orange-500 transition-colors">Piloting</a>
+            <a href="#creative" class="text-sm font-medium text-slate-300 hover:text-orange-500 transition-colors">Creative</a>
+            <a href="#contact" class="text-sm font-medium text-slate-300 hover:text-orange-500 transition-colors">Contact</a>
+        </div>
+    </header>
+
+
+
+
+    <!-- Header
     <header class="fixed top-0 left-0 right-0 z-50 glass-effect">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
@@ -73,6 +107,7 @@
             </div>
         </div>
     </header>
+-->
 
     <main class="pt-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -89,7 +124,7 @@
             <section id="about" class="py-20">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
                     <div class="md:col-span-1">
-                        <img src="images/Profile.png?text=AC" alt="Angad Chhibber" class="rounded-full mx-auto shadow-2xl border-4 border-orange-700">
+                        <img src="images/Profile.png?text=AC" alt="Angad Chhibber" class="rounded-full mx-auto shadow-2xl border-4 border-slate-700">
                     </div>
                     <div class="md:col-span-2">
                         <h2 class="text-4xl font-bold text-white mb-4">About Me</h2>
