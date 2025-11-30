@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robotic Octopus Arm Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <!-- Added MathJax for the spiral equation -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000; /* Black */
+            color: #F3F4F6; /* Light gray */
+        }
+        .hero-section {
+            /* Updated hero image to something more robotic/abstract */
+            background: linear-gradient(rgba(17, 24, 39, 0.9), rgba(17, 24, 39, 0.8)), url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2070&auto=format&fit=crop') no-repeat center center;
+            background-size: cover;
+        }
+        .section-title {
+            @apply text-4xl font-bold text-center mb-12 text-white relative;
+        }
+        .section-title::after {
+            content: '';
+            @apply block w-24 h-1 bg-blue-500 mx-auto mt-4 rounded; /* Changed accent to blue for this project */
+        }
+        .card {
+            @apply bg-gray-800 p-8 rounded-2xl shadow-lg transition-transform transform hover:-translate-y-2;
+        }
+        .btn {
+            @apply px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-md;
+        }
+        .stat-card {
+            @apply bg-gray-800 p-6 rounded-lg text-center;
+        }
+        nav a {
+             @apply relative text-white;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #3B82F6; /* Blue-500 */
+            transition: width 0.3s ease-in-out;
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+        .media-card {
+            @apply bg-gray-800 rounded-2xl shadow-lg overflow-hidden;
+        }
+        /* Custom highlight for math */
+        .math-block {
+            @apply bg-gray-700 p-4 rounded-lg my-4 text-center text-lg text-blue-200 overflow-x-auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50 shadow-lg">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-white flex items-center">
+                <span>Robotic Octopus Arm</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="hover:text-blue-500 transition-colors">Home</a>
+                <a href="#overview" class="hover:text-blue-500 transition-colors">Overview</a>
+                <a href="#design" class="hover:text-blue-500 transition-colors">Design</a>
+                <a href="#electronics" class="hover:text-blue-500 transition-colors">Electronics</a>
+                <a href="#results" class="hover:text-blue-500 transition-colors">Results</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 border-t border-gray-800">
+            <a href="index.html" class="block py-2 px-4 text-sm hover:bg-gray-800 text-white">Home</a>
+            <a href="#overview" class="block py-2 px-4 text-sm hover:bg-gray-800 text-white">Overview</a>
+            <a href="#design" class="block py-2 px-4 text-sm hover:bg-gray-800 text-white">Design</a>
+            <a href="#electronics" class="block py-2 px-4 text-sm hover:bg-gray-800 text-white">Electronics</a>
+            <a href="#results" class="block py-2 px-4 text-sm hover:bg-gray-800 text-white">Results</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section py-32">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-4 leading-tight">Bio-Inspired Soft Robotics</h1>
+                <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">Design, fabrication, and control of a cable-driven continuous backbone manipulator inspired by the logarithmic spiral geometry of octopus tentacles.</p>
+                <a href="https://docs.google.com/document/d/121f3VQMG8iSl1zv11aLGBSdvDthlRff2GQf7xPrFiJQ/edit" class="btn text-lg">View Full Report &rarr;</a>
+            </div>
+        </section>
+
+        <!-- Overview Section (Dark) -->
+        <section id="overview" class="py-24 bg-black">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                         <!-- Placeholder for Figure 1 or 2 from PDF -->
+                         <div class="bg-gray-800 h-80 rounded-lg shadow-2xl flex items-center justify-center border-2 border-gray-700 border-dashed">
+                            <span class="text-gray-500 text-lg"><i class="fas fa-image fa-2x mb-2 block text-center"></i>Insert CAD Render / Spiral Unit</span>
+                         </div>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-white mb-4">Biomimicry in Action</h3>
+                        <p class="text-gray-400 mb-4">Unlike traditional robots with discrete rigid joints, this arm utilizes a <strong>continuous backbone</strong> to achieve smooth curling motions. The goal was to create a low-cost, modular platform capable of high-articulation grasping using FDM 3D printing.</p>
+                        <p class="text-gray-400">By leveraging a logarithmic spiral geometry, the arm can wrap tightly around objects of varying sizes, maintaining a constant grasping angle regardless of the target's diameter.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mechanical Design Section (Light/Gray) -->
+        <section id="design" class="py-24 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <h2 class="text-center text-3xl font-bold text-white mb-2">Mechanical Design & Geometry</h2>
+                <p class="text-center text-gray-400 max-w-3xl mx-auto mb-16">The system relies on a series of discrete tapered units, scaled mathematically to ensure the arm curls from the tip (lowest stiffness) to the base (highest stiffness).</p>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                     <div class="order-2 md:order-1">
+                        <h3 class="text-2xl font-bold text-white mb-6">The Logarithmic Spiral</h3>
+                        <ul class="space-y-6 text-gray-300">
+                            <li class="flex items-start">
+                                <i class="fas fa-calculator text-blue-500 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-semibold text-lg text-white">Mathematical Foundation</h4>
+                                    <p>The arm geometry is defined by the polar equation:</p>
+                                    <div class="math-block">
+                                        \[ \rho = ae^{\beta\theta} \]
+                                    </div>
+                                    <p>Where \(\beta=0.94\) controls the growth rate. This ensures a constant grasping angle, allowing versatile wrapping around both thin cables and large cylinders.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-cube text-blue-500 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-semibold text-lg text-white">Torsion Control</h4>
+                                    <p>To prevent unwanted twisting, each unit features interlocking hexagonal keys (2 notches and 2 grooves). This constrains the assembly to curl only in the intended plane while allowing a 50&deg; total bending angle.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <!-- Placeholder for Figure 6: Final CAD Assembly -->
+                        <div class="bg-gray-800 h-96 rounded-lg shadow-2xl flex items-center justify-center border-2 border-gray-700 border-dashed">
+                             <span class="text-gray-500 text-lg"><i class="fas fa-project-diagram fa-2x mb-2 block text-center"></i>Insert Final Assembly CAD</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Electronics Section (Dark) -->
+        <section id="electronics" class="py-24 bg-black">
+            <div class="container mx-auto px-6">
+                <h2 class="text-center text-3xl font-bold text-white mb-2">Electronics & Control</h2>
+                 <p class="text-center text-gray-400 max-w-3xl mx-auto mb-16">A high-torque system driven by an Arduino R4 WiFi and a custom-designed winch mechanism.</p>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                         <!-- Placeholder for Wiring Diagram or Processing Code -->
+                         <div class="bg-gray-800 h-80 rounded-lg shadow-2xl overflow-hidden border border-gray-700 p-6 font-mono text-sm text-green-400">
+                            <p>// State Machine Logic</p>
+                            <p>if (command == 'F') {</p>
+                            <p>&nbsp;&nbsp;// Curl: Spin forward</p>
+                            <p>&nbsp;&nbsp;motor.writeMicroseconds(1550);</p>
+                            <p>} else if (command == 'B') {</p>
+                            <p>&nbsp;&nbsp;// Release: Spin backward</p>
+                            <p>&nbsp;&nbsp;motor.writeMicroseconds(1450);</p>
+                            <p>} else {</p>
+                            <p>&nbsp;&nbsp;// Hold Position</p>
+                            <p>&nbsp;&nbsp;motor.writeMicroseconds(1500);</p>
+                            <p>}</p>
+                         </div>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-white mb-4">Actuation & Power</h3>
+                        <p class="text-gray-400 mb-4">The core actuator is a <strong>55kg-cm continuous rotation servo</strong> acting as a winch. It pulls a UHMWPE braided line running through the perimeter of the units. Due to high current draw (5-7A), the motor is isolated on a dedicated 5V 15A PSU.</p>
+                        <h3 class="text-3xl font-bold text-white mb-4 mt-8">Safety Control</h3>
+                        <p class="text-gray-400">Since continuous servos lack position feedback, we implemented a "dead man's switch" using Processing. The arm only curls while the 'W' key is held and stops instantly upon release to prevent over-tightening.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results & Challenges Section (Light/Gray) -->
+        <section id="results" class="py-24 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <h2 class="text-center text-3xl font-bold text-white mb-2">Results & Challenges</h2>
+                 <p class="text-center text-gray-400 max-w-3xl mx-auto mb-16">Iterative engineering was required to solve mechanical failures and achieve a working prototype.</p>
+                 
+                 <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <!-- Challenge Card 1 -->
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700">
+                        <div class="text-blue-500 mb-4"><i class="fas fa-arrow-up fa-2x"></i></div>
+                        <h4 class="text-xl font-bold text-white mb-2">The "Lifting" Issue</h4>
+                        <p class="text-gray-400 text-sm">Ideally, the arm curls. In reality, friction caused the winch to pull the entire arm upwards bodily. <br><br><strong class="text-blue-400">Solution:</strong> A custom housing was designed to rigidly anchor the base, forcing the energy into the curling motion.</p>
+                    </div>
+                    <!-- Challenge Card 2 -->
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700">
+                        <div class="text-blue-500 mb-4"><i class="fas fa-cog fa-2x"></i></div>
+                        <h4 class="text-xl font-bold text-white mb-2">Winch Slip</h4>
+                        <p class="text-gray-400 text-sm">The 55kg-cm torque stripped the plastic-on-metal press fit of the printed winch. <br><br><strong class="text-blue-400">Solution:</strong> Implemented a zip-tie reinforced mounting system to mechanically bind the spool to the servo horn.</p>
+                    </div>
+                     <!-- Challenge Card 3 -->
+                     <div class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700">
+                        <div class="text-blue-500 mb-4"><i class="fas fa-check-circle fa-2x"></i></div>
+                        <h4 class="text-xl font-bold text-white mb-2">Final Outcome</h4>
+                        <p class="text-gray-400 text-sm">The final prototype successfully curls the full 20-unit assembly. The central elastic tube returns the arm to straightness, and the hexagonal geometry effectively prevents torsion.</p>
+                    </div>
+                 </div>
+
+                 <!-- Large Result Image -->
+                 <div class="bg-gray-800 p-8 rounded-2xl shadow-lg">
+                    <div class="flex flex-col md:flex-row items-center gap-8">
+                        <div class="md:w-1/2">
+                             <!-- Placeholder for Figure 14: Curling Arm -->
+                             <div class="bg-gray-900 h-64 rounded-lg flex items-center justify-center text-gray-500 border border-gray-700 border-dashed">
+                                 <span><i class="fas fa-camera fa-lg mr-2"></i>Insert Photo of Curling Arm</span>
+                             </div>
+                        </div>
+                        <div class="md:w-1/2">
+                            <h3 class="text-2xl font-bold text-white mb-4">Future Improvements</h3>
+                            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                                <li>Reduce stiffness of the inner tube for tighter curling.</li>
+                                <li>Design a housing that supports motor torque without zip-ties.</li>
+                                <li>Add a second degree of freedom for 3D curling (not just planar).</li>
+                                <li>Mount on a drone for aerial retrieval tasks.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-8">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+             <p>Designed & Fabricated by Angad Chhibber.</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when a link is clicked
+        const mobileLinks = mobileMenu.getElementsByTagName('a');
+        for(let link of mobileLinks) {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        }
+    </script>
+</body>
+</html>
