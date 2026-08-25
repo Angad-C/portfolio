@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Helmet Wearable Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <!-- Added MathJax for the kinematic equations -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000; /* Black */
+            color: #F3F4F6; /* Light gray */
+        }
+        .hero-section {
+            /* Add your hero background image class or style here if desired */
+        }
+        .section-title {
+            @apply text-4xl font-bold text-center mb-12 text-white relative;
+        }
+        .section-title::after {
+            content: '';
+            @apply block w-24 h-1 bg-blue-500 mx-auto mt-4 rounded; 
+        }
+        .card {
+            @apply bg-gray-800 p-8 rounded-2xl shadow-lg transition-transform transform hover:-translate-y-2;
+        }
+        .btn {
+            @apply px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-md;
+        }
+        .stat-card {
+            @apply bg-gray-800 p-6 rounded-lg text-center;
+        }
+        nav a {
+             @apply relative text-white;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #3B82F6; /* Blue-500 */
+            transition: width 0.3s ease-in-out;
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+        .media-card {
+            @apply bg-gray-800 rounded-2xl shadow-lg overflow-hidden;
+        }
+        /* Custom highlight for math */
+        .math-block {
+            @apply bg-gray-700 p-4 rounded-lg my-4 text-center text-lg text-blue-200 overflow-x-auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50 shadow-lg">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-white flex items-center">
+                <span>Smart Helmet Wearable</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="hover:text-blue-500 transition-colors">Home</a>
+                <a href="#overview" class="hover:text-blue-500 transition-colors">Overview</a>
+                <a href="#architecture" class="hover:text-blue-500 transition-colors">Architecture</a>
+                <a href="#dsp" class="hover:text-blue-500 transition-colors">DSP & Firmware</a>
+                <a href="#challenges" class="hover:text-blue-500 transition-colors">Engineering Challenges</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 border-t border-gray-800">
+            <a href="index.html" class="block py-2 px-4 text-sm hover:bg-gray-800 text-white">Home</a>
+            <a href="#overview" class="block py-2 px-4 text-sm hover:bg-gray-800 text-white">Overview</a>
+            <a href="#architecture" class="block py-2 px-4 text-sm hover:bg-gray-800 text-white">Architecture</a>
+            <a href="#dsp" class="block py-2 px-4 text-sm hover:bg-gray-800 text-white">DSP & Firmware</a>
+            <a href="#challenges" class="block py-2 px-4 text-sm hover:bg-gray-800 text-white">Engineering Challenges</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section py-32">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-4 leading-tight">Smart Helmet Harness</h1>
+                <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">Development of a retrofittable wearable featuring kinematic auto-braking, absolute gravity gesture signaling, and dual-bus haptic feedback.</p>
+                <a href="https://docs.google.com/document/d/YOUR_DOCUMENT_LINK_HERE/edit" class="btn text-lg" target="_blank">View Full Report &rarr;</a>
+            </div>
+        </section>
+
+        <!-- Overview Section (Dark) -->
+        <section id="overview" class="py-24 bg-black">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                         <!-- Placeholder for Hero Video/Image -->
+                         <div>
+                            <span class="text-gray-500 text-lg">
+                                <iframe src="videos/SmartHelmetDemo.mp4" width="100%" height="480" class="rounded-lg shadow-2xl" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                            </span>
+                         </div>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-white mb-4">Hardware-Agnostic Safety</h3>
+                        <p class="text-gray-400 mb-4">This project is a functional prototype of a smart, attachable lighting harness designed to be mounted to existing DOT-certified motorcycle or bicycle helmets. Instead of relying on a Bluetooth connection to the bike or complex handlebar switches, the harness is an <strong>entirely self-contained system</strong>.</p>
+                        <p class="text-gray-400">The primary engineering objective was to build a robust, responsive state machine capable of filtering out the severe kinematic "noise" of normal riding movements, running natively on a 3.3V embedded microcontroller.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Architecture Section (Light/Gray) -->
+        <section id="architecture" class="py-24 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <h2 class="text-center text-3xl font-bold text-white mb-2">Hardware Architecture</h2>
+                <p class="text-center text-gray-400 max-w-3xl mx-auto mb-16">The core logic runs on the Arduino Nano ESP32, leveraging its processing power and its critical ability to route multiple hardware I&sup2;C buses simultaneously.</p>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                     <div class="order-2 md:order-1">
+                        <h3 class="text-2xl font-bold text-white mb-6">System Integration</h3>
+                        <ul class="space-y-6 text-gray-300">
+                            <li class="flex items-start">
+                                <i class="fas fa-microchip text-blue-500 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-semibold text-lg text-white">Hardware Sensor Fusion</h4>
+                                    <p>Motion tracking is handled by the Adafruit BNO055 9-DOF IMU. By utilizing its onboard ARM Cortex-M0 processor, the system mathematically strips out Earth's static gravity vector in real-time, yielding pure dynamic deceleration data.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-wave-square text-blue-500 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-semibold text-lg text-white">Dual-Bus Haptic Control</h4>
+                                    <p>Directional tactile feedback is provided by dual Texas Instruments DRV2605L controllers driving coin vibration motors. These utilize the ESP32's dual hardware I&sup2;C buses to avoid hardcoded address collisions.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-lightbulb text-blue-500 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-semibold text-lg text-white">Addressable Optics</h4>
+                                    <p>Visual feedback is handled by a 100-pixel WS2812B LED array. To prevent DMA buffer trailing glitch bits on the ESP32, a "Phantom Pixel" software sink was implemented in the memory allocation.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <!-- Placeholder for Final Schematic -->
+                        <div class="bg-gray-800 h-96 rounded-lg shadow-2xl flex items-center justify-center border-2 border-gray-700 border-dashed overflow-hidden">
+                             <img src="images/SmartHelmetSchematic.png" alt="Dual I2C Bus System Schematic" class="object-contain h-full w-full">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DSP & Firmware Section (Dark) -->
+        <section id="dsp" class="py-24 bg-black">
+            <div class="container mx-auto px-6">
+                <h2 class="text-center text-3xl font-bold text-white mb-2">Digital Signal Processing</h2>
+                 <p class="text-center text-gray-400 max-w-3xl mx-auto mb-16">Filtering messy human biomechanics through rigorous algorithm design.</p>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                          <span class="text-gray-500 text-lg">
+                            <img src="images/SmartHelmetPrototype.jpg" alt="Hardware Prototype" class="rounded-lg shadow-2xl w-full h-auto">
+                          </span> 
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-white mb-4">Dual-Timer Debouncing</h3>
+                        <p class="text-gray-400 mb-4">To prevent the brake lights from flickering erratically due to high-frequency kinematic noise (e.g., heel strikes when walking), I engineered a non-blocking, dual-timer debouncing filter within the state machine.</p>
+                        
+                        <div class="math-block">
+                            \[ a_{x} < -2.2 \, \text{m/s}^2 \quad \text{for} \quad t \ge 200\text{ms} \]
+                        </div>
+                        
+                        <p class="text-gray-400 mt-4"><strong>Trigger Delay (Low-Pass Filter):</strong> The system requires a sustained deceleration event crossing the threshold for a continuous 200ms before actuating. A sudden shockwave only lasts ~30ms, meaning the code safely ignores it.</p>
+                        <p class="text-gray-400 mt-4"><strong>Sustain Timer:</strong> Once actuated, a secondary 1000ms sustain timer ensures the optical array remains solidly illuminated during non-linear deceleration (soft stops).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Challenges & Results Section (Light/Gray) -->
+        <section id="challenges" class="py-24 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <h2 class="text-center text-3xl font-bold text-white mb-2">Engineering Challenges</h2>
+                 <p class="text-center text-gray-400 max-w-3xl mx-auto mb-16">Transitioning from a breadboard proof-of-concept to a dynamic wearable introduced massive physical and digital hurdles.</p>
+                 
+                 <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <!-- Challenge Card 1 -->
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 flex flex-col h-full">
+                        <div class="text-blue-500 mb-4"><i class="fas fa-tachometer-alt fa-2x"></i></div>
+                        <h4 class="text-xl font-bold text-white mb-2">"Gravity Bleed"</h4>
+                        <p class="text-gray-400 text-sm flex-grow">Raw accelerometers cannot differentiate between static gravity and dynamic movement. Leaning forward projected Earth's gravity onto the Y-axis, triggering false brakes. <br><br><strong class="text-blue-400">Solution:</strong> Upgraded to the BNO055 to perform hardware sensor fusion, subtracting the gravity vector to yield a rock-solid 0.0 m/s&sup2; baseline during tilts.</p>
+                    </div>
+                    <!-- Challenge Card 2 -->
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 flex flex-col h-full">
+                        <div class="text-blue-500 mb-4"><i class="fas fa-sync-alt fa-2x"></i></div>
+                        <h4 class="text-xl font-bold text-white mb-2">Gimbal Lock & Cross-Coupling</h4>
+                        <p class="text-gray-400 text-sm flex-grow">Initial gesture controls relied on angular velocity. Looking over the shoulder naturally induces a slight ear-to-shoulder tilt, causing false turn signals. <br><br><strong class="text-blue-400">Solution:</strong> Shifted the state machine to track the absolute <strong>9.81 m/s&sup2; gravity vector</strong> instead of Euler angles, rendering gesture controls 100% immune to Yaw-induced false positives.</p>
+                    </div>
+                     <!-- Challenge Card 3 -->
+                     <div class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 flex flex-col h-full">
+                        <div class="text-blue-500 mb-4"><i class="fas fa-network-wired fa-2x"></i></div>
+                        <h4 class="text-xl font-bold text-white mb-2">I&sup2;C Address Conflict</h4>
+                        <p class="text-gray-400 text-sm flex-grow">The Texas Instruments DRV2605L haptic chips have a hardwired I&sup2;C address of 0x5A. Using two for directional feedback crashed the bus. <br><br><strong class="text-blue-400">Solution:</strong> Leveraged the ESP32-S3's internal silicon architecture to instantiate two entirely independent, hardware-level I&sup2;C buses to isolate the chips.</p>
+                    </div>
+                 </div>
+
+                 <!-- Large Result Image: Telemetry Verification -->
+                 <div class="bg-gray-800 p-8 rounded-2xl shadow-lg">
+                    <div class="flex flex-col lg:flex-row items-center gap-8">
+                        <div class="lg:w-1/2">
+                              <span class="text-gray-500 text-lg">
+                                <img src="images/SmartHelmetMatlabPlots.png" alt="MATLAB Data Visualization" class="rounded-lg border border-gray-600 shadow-md w-full h-auto">
+                              </span>
+                        </div>
+                        <div class="lg:w-1/2">
+                            <h3 class="text-2xl font-bold text-white mb-4">Telemetry Verification</h3>
+                            <p class="text-gray-400 mb-4">To validate the hardware upgrade, raw CSV serial data was captured and processed using <strong>MATLAB 2025a</strong>. The plots perfectly illustrate the elimination of gravity bleed.</p>
+                            <p class="text-gray-400 mb-6">Furthermore, the transient spike detected at T=8.2s (caused by a physical tap during handling) provided the exact visual proof necessary to inform the mathematical development of the 200ms software debounce filter.</p>
+                            
+                            <h3 class="text-2xl font-bold text-white mb-4 border-t border-gray-700 pt-6">Future Iterations</h3>
+                            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                                <li><strong>Custom PCB Layout:</strong> Consolidating the ESP32, BNO055, and dual DRV2605L drivers onto a single conformal footprint.</li>
+                                <li><strong>Flexible Matrix Displays:</strong> Transitioning from rigid LED strips to a modular matrix to seamlessly wrap complex helmet curves.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-8">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+             <p>Designed & Fabricated by Angad Chhibber.</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when a link is clicked
+        const mobileLinks = mobileMenu.getElementsByTagName('a');
+        for(let link of mobileLinks) {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        }
+    </script>
+</body>
+</html>
