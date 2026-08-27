@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rocky Balancing Robot Project</title>
+    <title>Embedded Disturbance Rejection Project</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-    <!-- Added MathJax for equations -->
+    <!-- Added MathJax for the kinematic equations -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
         body {
@@ -16,7 +16,7 @@
             color: #F3F4F6; /* Light gray */
         }
         .hero-section {
-            /* Updated hero image placeholder */
+            /* Add your hero background image class or style here if desired */
         }
         .section-title {
             @apply text-4xl font-bold text-center mb-12 text-white relative;
@@ -65,14 +65,14 @@
     <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50 shadow-lg">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="text-2xl font-bold text-white flex items-center">
-                <span>Rocky Balancing Robot</span>
+                <span>Embedded Disturbance Rejection</span>
             </div>
             <div class="hidden md:flex space-x-8">
                 <a href="index.html" class="hover:text-blue-500 transition-colors">Home</a>
                 <a href="#overview" class="hover:text-blue-500 transition-colors">Overview</a>
-                <a href="#modeling" class="hover:text-blue-500 transition-colors">Modeling</a>
-                <a href="#control" class="hover:text-blue-500 transition-colors">Control</a>
-                <a href="#results" class="hover:text-blue-500 transition-colors">Results</a>
+                <a href="#estimation" class="hover:text-blue-500 transition-colors">Parameter Estimation</a>
+                <a href="#architecture" class="hover:text-blue-500 transition-colors">Control Architecture</a>
+                <a href="#simulation" class="hover:text-blue-500 transition-colors">Simulated Behavior</a>
             </div>
             <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
                 <i class="fas fa-bars text-2xl"></i>
@@ -82,9 +82,9 @@
         <div id="mobile-menu" class="hidden md:hidden bg-gray-900 border-t border-gray-800">
             <a href="index.html" class="block py-2 px-4 text-sm hover:bg-gray-800 text-white">Home</a>
             <a href="#overview" class="block py-2 px-4 text-sm hover:bg-gray-800 text-white">Overview</a>
-            <a href="#modeling" class="block py-2 px-4 text-sm hover:bg-gray-800 text-white">Modeling</a>
-            <a href="#control" class="block py-2 px-4 text-sm hover:bg-gray-800 text-white">Control</a>
-            <a href="#results" class="block py-2 px-4 text-sm hover:bg-gray-800 text-white">Results</a>
+            <a href="#estimation" class="block py-2 px-4 text-sm hover:bg-gray-800 text-white">Parameter Estimation</a>
+            <a href="#architecture" class="block py-2 px-4 text-sm hover:bg-gray-800 text-white">Control Architecture</a>
+            <a href="#simulation" class="block py-2 px-4 text-sm hover:bg-gray-800 text-white">Simulated Behavior</a>
         </div>
     </header>
 
@@ -92,8 +92,8 @@
         <!-- Hero Section -->
         <section class="hero-section py-32">
             <div class="container mx-auto px-6 text-center">
-                <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-4 leading-tight">Balancing Robot Control Systems</h1>
-                <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">Modeling Rocky as a balancing system and using experimental calibration data to design closed-loop controllers for disturbance rejection[cite: 12].</p>
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-4 leading-tight">Cascaded Control of an Inverted Pendulum</h1>
+                <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">Modeling Rocky as a balancing system and utilizing experimental calibration data to design and validate closed-loop controllers for disturbance rejection.</p>
                 <a href="https://docs.google.com/document/d/1I2-1GPdSctwdb-8wEAFjDw_qxS7qckdSsn4w-FULGC4/edit?usp=sharing" class="btn text-lg" target="_blank">View Full Report &rarr;</a>
             </div>
         </section>
@@ -103,28 +103,28 @@
             <div class="container mx-auto px-6">
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                         <!-- Placeholder for Figure from PDF -->
+                         <!-- Placeholder for Hero Video/Image -->
                          <div>
                             <span class="text-gray-500 text-lg">
-                                <!-- Placeholder: 3-Pole or 5-Pole physical robot test video -->
-                                <iframe src="videos/InvertedPendulumVideo.mp4" width="640" height="480" allow="autoplay" title="Rocky Balancing Demonstration"></iframe>
+                                <!-- PLACEHOLDER: Insert Rocky Balancing Video Here -->
+                                <iframe src="videos/InvertedPendulumVideo.mp4" width="100%" height="480" class="rounded-lg shadow-2xl border border-gray-700" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                             </span>
                          </div>
                     </div>
                     <div>
-                        <h3 class="text-3xl font-bold text-white mb-4">Disturbance Rejection System</h3>
-                        <p class="text-gray-400 mb-4">In this project, we modeled Rocky as a balancing system and used experimental calibration data to design closed-loop controllers for disturbance rejection[cite: 12]. We first estimated the motor constants, natural frequency, and effective pendulum length from measured data[cite: 12].</p>
-                        <p class="text-gray-400">These parameters were then used to build transfer function models and design both 3-pole and 5-pole control systems in MATLAB and Simulink[cite: 12].</p>
+                        <h3 class="text-3xl font-bold text-white mb-4">Autonomous Stabilization</h3>
+                        <p class="text-gray-400 mb-4">This project involves the mathematical modeling and closed-loop control of a two-wheeled inverted pendulum robot. The primary objective was to design a robust architecture capable of remaining upright and rejecting severe external disturbances.</p>
+                        <p class="text-gray-400">By estimating the physical motor constants, natural frequency, and effective pendulum length directly from measured hardware data, these empirical parameters were utilized to construct accurate transfer function models and engineer multi-pole control systems in MATLAB and Simulink.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- System Modeling Section (Light/Gray) -->
-        <section id="modeling" class="py-24 bg-gray-900">
+        <!-- Parameter Estimation Section (Light/Gray) -->
+        <section id="estimation" class="py-24 bg-gray-900">
             <div class="container mx-auto px-6">
                 <h2 class="text-center text-3xl font-bold text-white mb-2">Parameter Estimation</h2>
-                <p class="text-center text-gray-400 max-w-3xl mx-auto mb-16">We leveraged load_motor_data() and fitted an exponential curve to the data of both motors ramping up[cite: 12].</p>
+                <p class="text-center text-gray-400 max-w-3xl mx-auto mb-16">We leveraged the MATLAB function <code>load_motor_data()</code> and fitted an exponential curve to the velocity data of both motors ramping up.</p>
                 
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                      <div class="order-2 md:order-1">
@@ -134,29 +134,27 @@
                                 <i class="fas fa-microchip text-blue-500 mt-1 mr-4"></i>
                                 <div>
                                     <h4 class="font-semibold text-lg text-white">Motor Constants</h4>
-                                    <p>The motor ramp-up fit curve equation used was[cite: 12]:</p>
+                                    <p>The motor ramp-up behavior was characterized using the following fit curve equation:</p>
                                     <div class="math-block">
-                                        \[ v(t)=c(1-e^{-\alpha t}) \]
+                                        $$ v(t) = c(1 - e^{-\alpha t}) $$
                                     </div>
-                                    <p>We estimated final values of $c_L=0.6983$, $\tau_L=0.0461$, $\alpha_L=21.7028$, and a steady-state gain of $\beta_L=0.0023$ for the left motor[cite: 12]. The right motor yielded $c_R=0.6707$, $\tau_R=0.0436$, $\alpha_R=22.9444$, and $\beta_R=0.0022$[cite: 12].</p>
+                                    <p>We estimated final values of <i>c<sub>L</sub></i> = 0.6983 m/s, <i>&tau;<sub>L</sub></i> = 0.0461, <i>&alpha;<sub>L</sub></i> = 21.7028, and a steady-state gain of <i>&beta;<sub>L</sub></i> = 0.0023 for the left motor. The right motor yielded <i>c<sub>R</sub></i> = 0.6707 m/s, <i>&tau;<sub>R</sub></i> = 0.0436, <i>&alpha;<sub>R</sub></i> = 22.9444, and <i>&beta;<sub>R</sub></i> = 0.0022.</p>
                                 </div>
                             </li>
                             <li class="flex items-start">
                                 <i class="fas fa-wave-square text-blue-500 mt-1 mr-4"></i>
                                 <div>
                                     <h4 class="font-semibold text-lg text-white">Natural Frequency</h4>
-                                    <p>Positive peaks were detected from the shifted pendulum response to estimate the damped oscillation frequency[cite: 12]. Using the fitted data, the final values obtained were $\omega_n=4.3855$ rad/s and an effective pendulum length of $l_{eff}=0.5101$ m[cite: 12].</p>
+                                    <p>Positive peaks were detected from the shifted pendulum response to estimate the damped oscillation frequency. Using the non-linear fitted data, the final natural frequency was <i>&omega;<sub>n</sub></i> = 4.3855 rad/s, establishing an effective pendulum length of <i>l<sub>eff</sub></i> = 0.5101 m.</p>
                                 </div>
                             </li>
                         </ul>
                     </div>
                     <div class="order-1 md:order-2">
-                        <!-- Placeholder for Figure 1: Calibration Curve -->
+                        <!-- Placeholder for Figure 1: Motor Calibration Curve -->
                         <div class="bg-gray-800 h-96 rounded-lg shadow-2xl flex items-center justify-center border-2 border-gray-700 border-dashed overflow-hidden">
-                             <span class="text-gray-500 text-lg w-full h-full flex items-center justify-center">
-                                 <!-- Placeholder: Motor Calibration (Left) Plot -->
-                                 <img src="images/MotorCalibrationLeft.png" alt="Motor Calibration Left Curve" class="object-contain h-full"></img>
-                             </span>
+                             <!-- PLACEHOLDER: Insert Figure 1 Here -->
+                             <img src="images/MotorCalibrationLeft.png" alt="Motor Calibration Left Curve" class="object-contain h-full w-full">
                         </div>
                     </div>
                 </div>
@@ -164,74 +162,78 @@
         </section>
 
         <!-- Control Architecture Section (Dark) -->
-        <section id="control" class="py-24 bg-black">
+        <section id="architecture" class="py-24 bg-black">
             <div class="container mx-auto px-6">
-                <h2 class="text-center text-3xl font-bold text-white mb-2">Closed-Loop Controllers</h2>
-                 <p class="text-center text-gray-400 max-w-3xl mx-auto mb-16">Designing both 3-pole and 5-pole systems for optimal disturbance rejection[cite: 12].</p>
+                <h2 class="text-center text-3xl font-bold text-white mb-2">Control Architecture</h2>
+                 <p class="text-center text-gray-400 max-w-3xl mx-auto mb-16">Designing both 3-pole and 5-pole closed-loop feedback systems for optimal balance and spatial regulation.</p>
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                          <span class="text-gray-500 text-lg w-full">
-                              <!-- Placeholder: Simulink Block Diagram -->
-                              <img src="images/SimulinkDiagram5Pole.png" alt="5-Pole Simulink Diagram" class="rounded-lg shadow-xl border border-gray-700"></img>
+                          <span class="text-gray-500 text-lg">
+                            <!-- PLACEHOLDER: Insert Figure 8 (5-Pole Simulink Diagram) Here -->
+                            <img src="images/Simulink5Pole.png" alt="5-Pole Simulink Block Diagram" class="rounded-lg shadow-2xl w-full h-auto border border-gray-700">
                           </span> 
                     </div>
                     <div>
                         <h3 class="text-3xl font-bold text-white mb-4">3-Pole Initial System</h3>
-                        <p class="text-gray-400 mb-4">We set our damping ratio to be 0.9 and wanted Rocky to return to its original angle as quickly as possible with minimal oscillations[cite: 12]. Pole 3 needed to minimally affect the two dominant poles while fulfilling the constraint that the average of the real components of the three poles equalled $-\alpha/3$[cite: 12]. This yielded gains of $K_p=791.4680$ and $K_i=5336.6$[cite: 12].</p>
-                        <h3 class="text-3xl font-bold text-white mb-4 mt-8">5-Pole System Upgrade</h3>
-                        <p class="text-gray-400">We made 2 new poles to increase the stability of our system by combatting steady state error accumulation and increased positional control[cite: 12]. The 5 pole system adds a motor feedback controller $J(s)$ in the lower feedback path to improve the regulation of the Rocky velocity and position while maintaining stable angle control[cite: 12].</p>
+                        <p class="text-gray-400 mb-4">To return Rocky to a steady angle rapidly, we targeted an underdamped response with a damping ratio of 0.9. This required placing the third pole carefully to ensure the constraint that the average of the real components equaled -<i>&alpha;</i>/3 was satisfied, ultimately requiring theoretical gains of <i>K<sub>p</sub></i> = 791.4680 and <i>K<sub>i</sub></i> = 5336.6.</p>
+                        
+                        <h3 class="text-3xl font-bold text-white mb-4 mt-8">5-Pole Cascaded System</h3>
+                        <p class="text-gray-400 mb-4">To combat steady-state error accumulation and increase positional control, the system was upgraded to a 5-pole cascaded architecture. This structure adds a motor feedback controller, <i>J(s)</i>, in the lower feedback path to regulate cart velocity and position while maintaining stable angle control.</p>
+                        <div class="math-block">
+                            $$ J(s) = \frac{J_p s^2 + J_i s + C_i}{s^2} $$
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Results & Challenges Section (Light/Gray) -->
-        <section id="results" class="py-24 bg-gray-900">
+        <!-- Simulated Behavior Section (Light/Gray) -->
+        <section id="simulation" class="py-24 bg-gray-900">
             <div class="container mx-auto px-6">
-                <h2 class="text-center text-3xl font-bold text-white mb-2">Simulated Behavior</h2>
-                 <p class="text-center text-gray-400 max-w-3xl mx-auto mb-16">Disturbance impulses are applied at the output to test how the system responds to disturbances[cite: 12].</p>
+                <h2 class="text-center text-3xl font-bold text-white mb-2">Simulated Behavior & Results</h2>
+                 <p class="text-center text-gray-400 max-w-3xl mx-auto mb-16">Discrete disturbance impulses were applied at the output to test how the respective systems responded to sudden force.</p>
                  
                  <div class="grid md:grid-cols-3 gap-8 mb-12">
                     <!-- Challenge Card 1 -->
-                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700">
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 flex flex-col h-full">
                         <div class="text-blue-500 mb-4"><i class="fas fa-exclamation-triangle fa-2x"></i></div>
-                        <h4 class="text-xl font-bold text-white mb-2">3-Pole Runaway</h4>
-                        <p class="text-gray-400 text-sm">For the 3-pole system, the Rocky has a relatively constant body angle, a constantly increasing cart velocity with a step behavior, and a rapidly increasing cart position[cite: 12]. Whenever we simulated a disturbance, the Rocky increased its velocity by ~32.5 m/s, but ended up running away from its initial position indefinitely[cite: 12].</p>
+                        <h4 class="text-xl font-bold text-white mb-2">3-Pole Runaway Drift</h4>
+                        <p class="text-gray-400 text-sm flex-grow">When simulating a disturbance on the 3-pole system, the body angle recovered, but the cart increased its velocity by ~32.5 m/s in a step behavior. Without velocity regulation, the cart position ran away from its initial position indefinitely.</p>
                     </div>
                     <!-- Challenge Card 2 -->
-                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700">
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 flex flex-col h-full">
                         <div class="text-blue-500 mb-4"><i class="fas fa-bullseye fa-2x"></i></div>
                         <h4 class="text-xl font-bold text-white mb-2">5-Pole Stability</h4>
-                        <p class="text-gray-400 text-sm">The 5-pole system allows the system to recover from the disturbances without the runaway position behavior seen in the 3-pole case[cite: 12]. The Rocky keeps the body angle, cart velocity, and cart position constant at 0[cite: 12].</p>
+                        <p class="text-gray-400 text-sm flex-grow">The implementation of the 5-pole nested architecture successfully allowed the system to recover from disturbances without the runaway position behavior seen in the 3-pole case. The system keeps body angle, velocity, and position anchored at 0.</p>
                     </div>
                      <!-- Challenge Card 3 -->
-                     <div class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700">
-                        <div class="text-blue-500 mb-4"><i class="fas fa-stopwatch fa-2x"></i></div>
+                     <div class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 flex flex-col h-full">
+                        <div class="text-blue-500 mb-4"><i class="fas fa-check-circle fa-2x"></i></div>
                         <h4 class="text-xl font-bold text-white mb-2">Final Outcome</h4>
-                        <p class="text-gray-400 text-sm">Whenever we simulated a disturbance on the 5-pole system, the Rocky was able to successfully rebalance and bring its velocity, position, and angle back to 0 at a maximum of ~6 seconds between them[cite: 12].</p>
+                        <p class="text-gray-400 text-sm flex-grow">Whenever a distinct disturbance struck the 5-pole system, Rocky was able to successfully rebalance, bringing its velocity, position, and angle entirely back to baseline in a maximum of ~6 seconds.</p>
                     </div>
                  </div>
 
-                 <!-- Large Result Image -->
+                 <!-- Large Result Image: Telemetry Verification -->
                  <div class="bg-gray-800 p-8 rounded-2xl shadow-lg">
-                    <div class="flex flex-col md:flex-row items-center gap-8">
-                        <div class="md:w-1/2">
-                              <span class="text-gray-500 text-lg w-full">
-                                <!-- Placeholder: Cart Velocity vs Time Scope -->
-                                <img src="images/CartVelocityScope.png" alt="Cart Velocity vs Time Graph" class="rounded border border-gray-600"></img>
+                    <div class="flex flex-col lg:flex-row items-center gap-8">
+                        <div class="lg:w-1/2">
+                              <span class="text-gray-500 text-lg">
+                                <!-- PLACEHOLDER: Insert Figure 10 (Cart Velocity Scope) Here -->
+                                <img src="images/CartVelocityScope.png" alt="Cart Velocity vs Time Scope" class="rounded-lg border border-gray-600 shadow-md w-full h-auto">
                               </span>
                         </div>
-                        <div class="md:w-1/2">
+                        <div class="lg:w-1/2">
                             <h3 class="text-2xl font-bold text-white mb-4">Project Links & Resources</h3>
                             <ul class="list-disc list-inside text-gray-400 space-y-4">
                                 <li>
-                                    <a href="#" class="text-blue-400 hover:underline">3 Pole Video Demonstration <i class="fas fa-external-link-alt text-sm ml-1"></i></a>
+                                    <a href="#" class="text-blue-400 hover:underline">3-Pole Video Demonstration <i class="fas fa-external-link-alt text-sm ml-1"></i></a>
                                 </li>
                                 <li>
-                                    <a href="#" class="text-blue-400 hover:underline">5 Pole Video Demonstration <i class="fas fa-external-link-alt text-sm ml-1"></i></a>
+                                    <a href="#" class="text-blue-400 hover:underline">5-Pole Video Demonstration <i class="fas fa-external-link-alt text-sm ml-1"></i></a>
                                 </li>
                                 <li>
-                                    <a href="#" class="text-blue-400 hover:underline">Drive Link with Code and Simulinks <i class="fas fa-folder-open text-sm ml-1"></i></a>
+                                    <a href="#" class="text-blue-400 hover:underline">GitHub Repository (Code & Simulink Files) <i class="fas fa-folder-open text-sm ml-1"></i></a>
                                 </li>
                             </ul>
                         </div>
@@ -244,7 +246,7 @@
     <!-- Footer -->
     <footer class="bg-gray-800 py-8">
         <div class="container mx-auto px-6 text-center text-gray-400">
-             <p>Project by Ananth Kutuva, Angad Chhibber, David Bardalez - ESA SP26[cite: 12].</p>
+             <p>Project by Ananth Kutuva, Angad Chhibber, and David Bardalez - ESA SP26.</p>
         </div>
     </footer>
 
@@ -256,7 +258,7 @@
             mobileMenu.classList.toggle('hidden');
         });
         
-        // Close the mobile menu when a link is clicked
+        // Close mobile menu when a link is clicked
         const mobileLinks = mobileMenu.getElementsByTagName('a');
         for(let link of mobileLinks) {
             link.addEventListener('click', () => {
