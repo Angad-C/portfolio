@@ -178,7 +178,7 @@
                         <p class="text-gray-400 mb-4">To prevent the brake lights from flickering erratically due to high-frequency kinematic noise (e.g., heel strikes when walking), I engineered a non-blocking, dual-timer debouncing filter within the state machine.</p>
                         
                         <div class="math-block">
-                            \[ a_{x} < -2.2 \, \text{m/s}^2 \quad \text{for} \quad t \ge 200\text{ms} \]
+                            \[ a_{x} < -2.5 \, \text{m/s}^2 \quad \text{for} \quad t \ge 200\text{ms} \]
                         </div>
                         
                         <p class="text-gray-400 mt-4"><strong>Trigger Delay (Low-Pass Filter):</strong> The system requires a sustained deceleration event crossing the threshold for a continuous 200ms before actuating. A sudden shockwave only lasts ~30ms, meaning the code safely ignores it.</p>
